@@ -1,0 +1,16 @@
+.shopMiddleProfileContainer {
+  margin-bottom: 104px;
+}
+
+.socialMediaIcon {
+  display: flex;
+}
+.socialMediaIcon a {
+  margin: 10px;
+  font-size: 23px;
+  color: var(--primary-color);
+}
+
+.socialMediaIcon a:hover {
+  color: var(--primary-color);
+}

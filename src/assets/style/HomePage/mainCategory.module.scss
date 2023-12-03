@@ -1,0 +1,224 @@
+@import "../_App.module.scss";
+.mainCategoryContainer {
+  width: 88%;
+  margin: auto;
+  padding-top: 10%;
+  h2 {
+    font-size: 33px;
+    color: $primary-color;
+    text-align: center;
+  }
+  .categoryCard {
+    background-color: $danger-color;
+    height: 250px;
+  }
+  .gridContainer {
+    width: 40%;
+  }
+}
+.cardMainBody {
+  padding-top: 21px;
+  .customPrevArrow {
+    i {
+      position: absolute !important;
+      top: 258px;
+      left: -19px;
+      cursor: pointer;
+      font-size: 25px;
+    }
+  }
+  .customNextArrow {
+    i {
+      position: absolute;
+      top: 258px;
+      font-size: 25px;
+      cursor: pointer;
+      right: -19px;
+    }
+  }
+
+  .cardBody {
+    background-color: $lightGrey;
+
+    border-radius: 7px;
+    cursor: pointer;
+    height: 250px;
+    position: relative;
+
+    .cardImg {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: $white;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      .subCardImage {
+        position: absolute;
+        top: 10px;
+        left: 6px;
+        img {
+          height: 30px;
+          width: 100%;
+        }
+      }
+    }
+    .cardBodyInfo {
+      position: relative;
+      top: 47%;
+      width: 81%;
+      padding: 10px;
+      h4 {
+        font-size: 16px;
+      }
+      p {
+        overflow: hidden;
+        /* text-overflow: ellipsis; */
+        height: 53px;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+ 
+  .cardMainBody {
+    .customPrevArrow {
+      i {
+        position: relative !important;
+        top: 224px !important;
+        right: 19px;
+      }
+    }
+    .cardMainBody {
+      .customNextArrow {
+        i {
+          position: absolute;
+          top: 224px !important;
+          right: -4px;
+        }
+      }
+    }
+  }
+  .cardBody {
+    height: 190px !important;
+    margin: 10px auto;
+    position: relative;
+    margin-bottom: 29px;
+
+    margin: 15px auto;
+
+    max-width: 200px;
+    // .cardBodyInfo {
+    //   width: 93%;
+    //   padding: 10px;
+    //   position: relative;
+    //   top: 38% !important;
+    //   h4 {
+    //     font-size: 13px !important;
+    //   }
+
+    //   p {
+    //     font-size: 12px;
+    //     height: 35px !important;
+    //   }
+    // }
+  }
+}
+// @media (min-width: 320px) and (max-width: 340px) {
+//   .cardBody {
+//     width: 200px !important;
+//     margin: 15px auto !important;
+//     max-width: 300px;
+//   }
+// }
+// @media (min-width: 320px) and (max-width: 370px) {
+//   .cardBody {
+//     width: 120px;
+//   }
+// }
+
+// @media (min-width: 370px) and (max-width: 400px) {
+//   .cardBody {
+//     width: 130px;
+//   }
+// }
+
+// @media (min-width: 400px) and (max-width: 500px) {
+//   .cardBody {
+//     width: 140px;
+//   }
+// }
+
+// @media (min-width: 600px) and (max-width: 800px) {
+//   .cardBody {
+//     width: 175px !important;
+//   }
+// }
+
+@media (min-width: 900px) and (max-width: 1000px) {
+  .cardMainBody {
+    .customNextArrow {
+      i {
+        position: absolute;
+        top: 200px;
+        font-size: 25px;
+        right: -4px;
+      }
+    }
+    .customPrevArrow {
+      i {
+        position: absolute !important;
+        top: 200px;
+        left: -19px;
+        font-size: 25px;
+      }
+    }
+  }
+  // .cardBody {
+  //   height: 190px !important;
+  //   margin: 10px auto;
+  //   position: relative;
+  //   margin-bottom: 29px;
+
+  //   margin: 15px auto;
+
+  //   max-width: 250px;
+  //   width: 200px;
+  // }
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .cardMainBody {
+    .customNextArrow {
+      i {
+        position: absolute;
+        top: 224px !important;
+        font-size: 25px;
+        cursor: pointer;
+        right: -24px;
+      }
+    }
+  }
+}
+@media  (max-width: 480px) {
+  .mainCategoryContainer{
+    width: 75%;
+  }
+}
+
+// @media (min-width: 600px) {
+//   .cardBody {
+//     margin-bottom: 29px !important;
+
+//     margin: 15px;
+//   }
+// }
+
+// @media (max-width: 700px) {
+//   .cardBody {
+//     margin-bottom: 29px !important;
+
+//     margin: 15px;
+//   }
+// }

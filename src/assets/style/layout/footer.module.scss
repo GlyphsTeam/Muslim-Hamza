@@ -1,0 +1,153 @@
+@import "../_App.module.scss";
+.footer {
+  background-color: $header-footer-box-color;
+  color: $primary-color;
+  // position: absolute;
+
+  width: 100%;
+  height: fit-content;
+  .hrDiv{
+    margin: 16px;
+  hr {
+    width: 86%;
+    border: 0.6px solid #d6d6d6;
+    margin: auto;
+  }
+}
+  .lastSectionFooter {
+    padding: 4px 6.5% 20px;
+    p {
+      margin: 0px;
+    }
+  }
+}
+.mainFooter {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  position: relative;
+  top: 17px;
+  .mainFooterContainer {
+    height: 259px;
+  }
+  .firstSection {
+    img {
+      height: 70px;
+    }
+    .subFirstSection {
+      .footerIcon {
+        display: flex;
+        // gap: 26px;
+        i {
+          font-size: 27px;
+          color: $primary-color;
+          margin: 0px 14px;
+        }
+      }
+    }
+  }
+  .useFulLinksDiv {
+    display: flex;
+    flex-direction: column;
+    h3{
+      font-size: 20px;
+    }
+    a {
+      color: $primary-color;
+    }
+  }
+  .legalLinks {
+    display: flex;
+    flex-direction: column;
+    h3{
+      font-size: 20px;
+    }
+
+    a {
+      color: $primary-color;
+    }
+  }
+
+  .servicesLinks {
+    display: flex;
+    flex-direction: column;
+    h3{
+      font-size: 20px;
+    }
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1200px) {
+  .lastSectionFooter {
+    padding: 0px 2.8% 18px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 840px) {
+  .footer {
+    .mainFooterContainer {
+      .hrDiv {
+        padding-top: 20px;
+      }
+
+      .mainFooter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 5px 38px;
+
+        .firstSection {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 850px) {
+  .lastSectionFooter {
+    padding: 4px 4.8% 18px !important;
+  }
+}
+@media (max-width: 480px) {
+  .footer {
+    .mainFooter {
+      display: flex;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+      top: 17px;
+      // gap: 24px;
+      padding: 5px 30px;
+      .firstSection {
+        width: 100%;
+      }
+    }
+  }
+  .mainFooterContainer .legalLinks {
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+  .hrDiv {
+    padding-top: 20px;
+  }
+ 
+}
+
+
+@media (max-width: 768px) {
+  
+ .footerIcon{
+  padding-bottom: 15px;
+  padding-top: 12px;
+ i{
+  font-size: 23px !important;
+  margin: 0px 5px !important;
+
+ }
+} 
+}

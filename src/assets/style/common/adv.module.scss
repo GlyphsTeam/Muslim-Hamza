@@ -1,0 +1,35 @@
+.advertisementBannerDiv{ 
+    overflow: hidden;
+    padding-top: 5%;
+
+img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+}
+.advBannerLessPadding{
+    padding-top: 22px;
+    img {
+        height: 400px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .advertisementBannerDiv{ 
+        img{
+    height: 140px;
+}
+}
+}
+
+@media (min-width:480px) and (max-width: 786px) {
+    .advertisementBannerDiv{ 
+        img{
+    height: 230px !important;
+}
+}
+}

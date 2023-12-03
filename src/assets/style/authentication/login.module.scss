@@ -1,0 +1,35 @@
+@import "../_App.module.scss";
+
+.leftAuth{
+    background: $tertiary-color;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    img{
+        height: 250px;
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .leftAuth{
+        img{
+            height: 220px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .leftAuth{
+        img{
+            height: 180px;
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .leftAuth{
+        img{
+            height: 150px;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.shopServiceDiv {
+  padding: 10px;
+  background: rgba(10, 68, 34, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  height: 195px;
+  width: 100%;
+
+}
+.shopServiceContainer{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding-top: 10px;
+
+}
+
+.shopServiceSubDiv{
+    width: 29.5%;
+    margin: 0px 10px;
+}
+
+.shopServiceDiv h4{
+
+        color: var(--primary-color);
+    
+}
+@media (max-width: 990px) {
+    .shopServiceDiv{
+    width: 95%;
+    margin: auto;
+    margin-top: 27px;
+}
+
+.shopServiceSubDiv{
+width: 41%;
+}
+}
+
+@media (min-width: 480px)  and (max-width: 990px){
+    .shopServiceDiv{
+    width: 700px;
+    }
+}

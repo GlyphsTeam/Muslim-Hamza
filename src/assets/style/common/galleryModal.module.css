@@ -1,0 +1,176 @@
+.myImg {
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+  
+  .myImg:hover {opacity: 0.7;}
+  
+  /* The Modal (background) */
+  .modal {
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (image) */
+  .modalContent {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Caption of Modal Image */
+  /* #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+   */
+  /* Add Animation */
+  /* .modalContent, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+   */
+  /* @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  } */
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 77px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 2;
+  }
+  /* .customPrevArrow i  {
+ 
+      position: absolute !important;
+      top: 258px;
+      left: -144px;
+      cursor: pointer;
+      font-size: 25px;
+      color: white;
+    
+  }
+  .customNextArrow i  {
+ 
+      position: absolute;
+      top: 258px;
+      font-size: 25px;
+      cursor: pointer;
+      right: -133px;
+      color: white;
+    
+  } */
+  .showGalleryImage{
+    height: 600px;
+    object-fit: contain;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modalContent {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .customPrevArrow i  {
+ 
+      position: absolute !important;
+      top: 258px;
+      left: -144px;
+      cursor: pointer;
+      font-size: 25px;
+      color: white;
+    
+  }
+  .customNextArrow i  {
+ 
+      position: absolute;
+      top: 258px;
+      font-size: 25px;
+      cursor: pointer;
+      right: -133px;
+      color: white;
+    
+  }
+ 
+  }
+
+  @media (max-width: 768px) {
+    .showGalleryImage{
+      height: 438px;
+      margin: 60px auto;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .customPrevArrow i  {
+ 
+      border-radius: 50%;
+    cursor: pointer;
+    font-size: 25px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    left: 4%;
+    text-align: center;
+    top: 267px;
+    width: 40px;
+    color: white;
+    z-index: 2;
+    font-weight: bold;
+
+  } 
+   .customNextArrow i  {
+ 
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 25px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 4%;
+    text-align: center;
+    top: 267px;
+    width: 40px;
+    color: white;
+    z-index: 2;
+    font-weight: bold;
+    
+  }
+ 
+  }

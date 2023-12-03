@@ -1,0 +1,39 @@
+.showJobMainImage{
+    text-align: center;
+}
+
+.showJobMainImage img{
+    box-shadow: 6px 14px 19px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    height: 315px;
+}
+
+.rightShowJobContainer h3{
+    color: var(--primary-color)
+}
+.showJobDescription{
+    padding-top: 26px;
+}
+.showJobDescription h5{
+color: var(--primary-color);
+}
+
+.showJobIcon{
+    display: flex;
+    height: fit-content;
+}
+
+.showJobIcon i {
+    font-size: 21px;
+    margin: 0px 7px;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+@media (max-width: 480px) {
+    .showJobMainImage img{
+    height: 218px;
+}
+.mobilePadding{
+    padding: 35px !important;
+}
+}

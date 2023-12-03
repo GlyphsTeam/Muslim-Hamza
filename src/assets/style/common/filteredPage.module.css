@@ -1,0 +1,84 @@
+
+.pageContainer{
+    padding: 60px 0 !important;
+    margin: 0px 43px 0px 43px !important;
+    display:flex;
+    flex-wrap: nowrap !important;
+}
+.categoryContanier{
+ display: flex;
+ flex-wrap: wrap;
+}
+.categoryContanier .readMoreDiv{
+display: flex !important;
+}
+.mainFilterDiv{
+    background-color: #F0F0F0;
+    padding: 15px 0px 0;
+    margin-bottom: 25px;
+
+}
+
+.filterTitle{
+    text-align: center;
+    font-size: 25px;
+    color: #11142D;
+}
+
+.accordionDiv div div h2 button{
+    font-size: 24px !important;
+    color: #11142D;
+    background-color: white !important;
+    box-shadow: none !important;
+}
+.accordionBody{
+    height: 200px;
+    overflow-y: auto ;
+}
+
+.subFilterTitle{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.filterShow{
+    display: none;
+}
+.filterShow i{
+    color: black !important;
+}
+.activeFilter{
+    color: #2B613F;
+}
+
+.categoryTitleFilter{
+    margin: 0;
+}
+
+@media screen and (max-width: 768px){
+    .pageContainer{
+        margin: 0px !important;
+    }
+    .filterHide{
+        display: none;
+    }
+
+    .filterShow{
+        display: block;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    .pageRow{
+        width: 100% !important;
+        padding: 0;
+    }
+    
+}
+
+@media (max-width:990px) {
+ .categoryTitleFilter{
+    font-size: 16px;
+ }   
+}

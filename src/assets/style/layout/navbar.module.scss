@@ -1,0 +1,345 @@
+@import "../_App.module.scss";
+.LogoImage {
+  height: 56px;
+}
+.navigationBarContainer {
+  font-size: 18px;
+  
+  cursor: pointer;
+  .navigationBarUnorderedList {
+    display: flex;
+    list-style-type: none;
+    // gap: 32px;
+    margin: auto;
+    padding: 0;
+    // a{
+      // color: $primary-color;
+      // height: 30px;
+      // padding: 0px;
+      // margin: 0px 14px;
+    // &:focus  {
+    //   border-bottom: 2px solid $primary-color;
+
+    // }
+    li {
+      color: $primary-color !important;
+      height: 30px;
+      padding: 0px;
+      margin: 0px 14px;
+    }
+    // color: $primary-color;
+    .activePath {
+      border-bottom: 2px solid $primary-color !important;
+    }
+      // height: 26px;
+      // padding: 0px;
+      // margin: 0px 12px;
+      
+      // &:hover {
+      //   border-bottom: 1.5px solid $primary-color;
+      // }
+   
+    
+  }
+}
+.statesDropDownDivMobile{
+  position: fixed;
+  background: $box-color;
+  padding: 10px;
+  width: 100%;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  border-radius: 12px;
+  margin: 0 !important;
+  display: flex !important;
+  height: 100vh;
+  top: 60px;
+  z-index: 99999;
+}
+.statesImg{
+  display: block;
+  width: 33% !important;
+  text-align: center;
+margin: 15px 0;
+padding: 0 5px;
+max-height: 50px;
+
+img{
+  border-radius: 50%;
+  border: 2px solid $primary-color;
+}
+}
+.mobilestateHeight{
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+}
+.statesDropDownDivMobile{
+  display: none !important;
+  }
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: sticky;
+  // position: absolute;
+  z-index: 999;
+  background: $header-footer-box-color;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: 70px;
+}
+.headerContainerHome {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: sticky;
+  position: absolute;
+  background: transparent;
+  z-index: 999;
+  box-shadow: none;
+}
+.activeNav {
+  background: $transparentBlack;
+  color: $white !important;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  justify-content: space-around;
+  .navigationBarContainer {
+    .navigationBarUnorderedList {
+      // a{
+      //  .activePath {
+      //     border-bottom: 2px solid white !important;
+    
+      //   // }
+        
+      
+      li {
+        color: $white !important;
+      
+    }
+    .activePath {
+      border-bottom: 2px solid $white !important;
+    }
+    }
+  }
+  .rightSubContainer {
+    div {
+      i {
+        color: $white;
+      }
+      .userIcon {
+        color: $primary-color;
+      }
+    }
+  }
+}
+.rightSubContainer {
+  display: flex;
+  // gap: 28px;
+  align-items: center;
+
+  i {
+    color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+.navBarSearchMainDiv {
+  min-width: 50px;
+  max-width: 50px;
+}
+
+.navSearchDiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  // gap: 8px;
+  // margin: 0px 17px 0px 17px;
+
+  input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow:  rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;;
+    margin: 0px 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  
+  .navigationBarContainer {
+    display: none;
+  }
+  .logoDivAr{
+    padding: 12px;
+  }
+  .rightSubContainer {
+    display: none;
+  }
+  .burgerMenu {
+    display: block;
+    // position: absolute;
+    // right: 30px;
+    // top: 25px;
+    z-index: 45;
+  }
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    // padding: 0px 27px;
+    align-items: center !important;
+    // position: fixed;
+  }
+  .navigationBarContainerMobile {
+    display: flex;
+  }
+  .showNavigationBarMobile {
+    background-color: $lightGrey;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    transition: all 0.3s ease-in;
+    width: 40%;
+    
+    .showNavBarMainMobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 26px;
+      
+      .navigationBarUnorderedList {
+        list-style-type: none;
+        
+        
+        li {
+          margin: 0px 0px 16px 0px;
+          color: $primary-color;
+          
+          
+        }
+      }
+      
+    }
+  }
+  .navBarSearchMainDiv{
+    margin: 0px 16px;
+  }
+  .rightSubContainerMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .navMobileMargin {
+      margin: 16px 0px 16px 0px;
+      color: $primary-color;
+    }
+  }
+  
+  .navSearchDiv {
+    // display: flex;
+    // justify-content: center;
+  }
+  .activeNav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .searchMenuDivMobile {
+    display: flex;
+    // gap: 18px;
+    align-items: center;
+    /* flex-direction: row-reverse; */
+    padding: 11px;
+    position: absolute !important;
+    right: 3px !important;
+  }
+  .searchMenuDivMobileAr{
+    position: absolute;
+    left: 3px;
+    display: flex;
+    align-items: center;
+    padding: 11px;
+  }
+  .showNavigationBarMobile .showNavBarMainMobile {
+    .navigationBarUnorderedList {
+      margin: 0px;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .burgerMenu {
+    display: none;
+  }
+  .showNavBarMainContainerMobile {
+    display: none;
+  }
+  .searchMenuDivMobile {
+    display: none;
+  }
+  .searchMenuDivMobileAr{
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navSearchDiv {
+    input {
+      width: 164px;
+    }
+  }
+}
+@media (max-width: 360px) {
+  .navSearchDiv {
+    input {
+      width: 150px;
+    }
+  }
+}
+@media (min-width:500px) and (max-width:1024px){
+  .imageContainerSpan{
+    margin-bottom: 30px !important;
+    img{
+      width:120px !important;
+      height:120px !important;
+    }
+  }
+  .statesImg{
+    margin-bottom: 100px !important;
+
+  }
+}
+.statesDropDownDiv{
+  position: absolute;
+  background: $box-color;
+  padding: 10px;
+  height: 315px;
+  max-height: 375px;
+  right:68px;
+  width: 330px;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 12px;
+  margin: 10px 0 !important;
+}
+@media (max-width:500px){
+  .imageContainerSpan{
+    img{
+      width:100px !important;
+      height:100px !important;
+    }
+  }
+  .statesImg{
+    margin-bottom: 80px !important;
+
+  }
+}

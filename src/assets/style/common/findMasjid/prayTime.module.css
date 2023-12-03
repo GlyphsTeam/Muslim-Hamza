@@ -1,0 +1,166 @@
+.prayTimeTitle{
+    display: flex;
+    align-items: center;
+    /* gap: 13px; */
+    padding-top: 20px;
+    color: #0A4422;
+}
+
+.prayTimeTitle img{
+    width: 29px;
+    margin: 0px 9px;
+}
+.prayTimeDiv{
+    display: flex;
+    display: flex;
+    align-items: center;
+  
+}
+.prayTimeMasjidDiv{
+display: flex;
+align-items: center;
+}
+.prayTimeInfo{
+    background: #B1D7B4;
+    border-radius: 5px;
+    padding: 12px !important;
+    margin: 7px;
+    min-width: 115px !important;
+}
+.hrStyle{
+margin: 0px;
+/* position: relative;
+left: 120px; */
+/* width: 70%; */
+}
+.prayTimeInfoTitle{
+    width: 77%;
+    
+}
+.prayTimeInfoTitle h5{
+  color: #0A4422;
+
+}
+
+@media (max-width: 480px) {
+    .prayTimeInfo{
+    padding: 10px;
+    margin: 7px;
+    min-width: 77px !important;
+}
+.prayTimeInfoTitle h5{
+    font-size: 13px;
+    text-align: center;
+
+}
+.hrStyle{
+    display: none;
+}
+.prayTimeMobile{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.prayTimeDiv{
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+.prayTimeMasjidDiv{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.prayTimeInfo{
+    padding: 5px !important;
+    margin: 4px;
+    min-width: 56px !important;
+    font-size: 11px;
+    font-weight: 900;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+}
+
+
+@media (min-width: 380px) and (max-width: 395px){
+
+    .prayTimeInfo{
+     
+    min-width: 62px;
+    }
+
+}
+
+
+@media (min-width: 1024px) {
+    .prayTimeDiv{
+    margin: 13px;
+}
+.prayTimeMasjidDiv{
+   
+    margin: 0px !important;
+
+}
+}
+
+
+
+
+@media (min-width:480px) and (max-width: 990px) {
+    .prayTimeInfo{
+    padding: 10px;
+    margin: 7px;
+    min-width: 77px !important;
+}
+.prayTimeInfoTitle h5{
+    font-size: 16px;
+    text-align: center;
+
+}
+.hrStyle{
+    display: none;
+}
+.prayTimeMobile{
+    display: flex;
+    justify-content: center;
+}
+.prayTimeDiv{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 7px;
+    
+}
+.prayTimeMasjidDiv{
+display: flex;
+flex-direction: column-reverse;
+}
+.prayTimeInfo{
+    padding: 5px !important;
+    margin: 0px;
+    max-width: 90px !important;
+    font-size: 11px;
+    font-weight: 900;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+
+}
+.findMasjidContainer{
+    width: 82% !important;
+}
+
+}
+
+
+@media (min-width: 480px) and (max-width: 586px) {
+    .prayTimeInfo{
+        min-width: 60px;
+    }
+    
+}

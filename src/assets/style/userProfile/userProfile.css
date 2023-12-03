@@ -1,0 +1,7 @@
+.accordion-button:focus{
+    border-color: transparent !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary-color) !important;
+}

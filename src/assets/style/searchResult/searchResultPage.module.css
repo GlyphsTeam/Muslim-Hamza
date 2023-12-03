@@ -1,0 +1,21 @@
+.searchResultPageSpan{
+    color: var(--secondary-color);
+    padding: 10px;
+}
+
+.noResultDiv{
+    height: 375px;
+    line-height: 200px;
+}
+
+.noResultDiv p{
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+
+.searchContainer h3{
+    color: var(--primary-color);
+
+}

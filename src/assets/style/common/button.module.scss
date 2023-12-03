@@ -1,0 +1,63 @@
+@import "../_App.module.scss";
+.buttonContainer {
+  background-color: $tertiary-color;
+  padding: 10px;
+  border: none;
+  height: 38px;
+  border-radius: 9px;
+  width: 115px;
+  color: $primary-color;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // margin: 0px 10px;
+ 
+
+  .iconUserDiv {
+    i {
+      padding: 5px;
+    }
+  }
+
+}
+.categoryBtnDiv{
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 17px;
+
+ }
+ .userloggedinBtn {
+   background-color: $tertiary-color;
+   padding: 10px;
+   border: none;
+   height: 38px;
+   border-radius: 9px;
+   width: 115px;
+   color: $primary-color;
+   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0px 17px;
+   cursor: pointer;
+   
+   i {
+     padding: 5px !important;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    // .buttonContainer {
+      .categoryBtnDiv{
+        
+        margin: 0px 2px !important;
+        
+      }
+      .categoryBtnDivAr{
+      margin: 0px 16px !important;
+      
+      }
+    }
+// }

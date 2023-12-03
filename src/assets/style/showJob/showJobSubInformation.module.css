@@ -1,0 +1,17 @@
+.showJobSubInformationDiv{
+    display: flex;
+    padding-top: 47px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.ShowJobSubInformationImageDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.ShowJobSubInformationImageDiv img{
+    height: 56px;
+}

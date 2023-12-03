@@ -1,0 +1,221 @@
+
+@import "../_App.module.scss";
+
+.userPage{
+    background-image: url('../../images/userProfile/userProfileBackground.png') !important;
+}
+
+.userFilter{
+    display: none;
+    .filterShow{
+        background: none;
+        border: none;
+        margin: 10px 30px;
+        font-size: 20px;
+    }
+}
+
+.menu{
+    background: $box-color;
+    margin: 0;
+    height: 100%;
+    min-height: 550px;
+
+    .menuTitle{
+        color: $primary-color;
+        margin: 0px 0;
+        padding: 15px 50px;
+    }
+
+    .accordionTitle{
+        margin: 0;
+        padding: 2px 32px;
+        font-size: 20px;
+        font-weight: 500;
+
+    }
+
+    .menuBody{
+        margin: 0;
+        padding: 2px 30px;
+        font-size: 18px;
+        color: #0A4422;
+        font-weight: 400;
+    }
+
+    .menuList{
+        color: $primary-color;
+        margin: 0;
+
+        li{
+            list-style: none;
+            padding: 5px 0;
+            a{
+            color: $primary-color;
+            }
+        }
+    }
+
+    .menuSignOut{
+        color: #CF1E50;
+        // margin: 10px 0;
+        padding: 10px 50px;
+        // font-size: 20px;
+        cursor: pointer;
+    }
+
+    .menuDeleteAccount{
+        color: #CF1E50 !important;
+    }
+}
+
+.userContainer{
+    margin: 4rem 0 2rem;
+
+    .userProfileRow{
+
+        .userProfileImageDiv{
+            position: relative;
+
+            .userImage{
+                height: 250px;
+                width: 250px;
+                margin: 0 auto 25px;
+                display: flex;
+                background: $white;
+                border-radius: 50px;
+            }
+
+            .editIconContainer{
+                position: absolute;
+                width: fit-content;
+                top: 0;
+                right: 60px;
+               img{
+                height: 25px;
+                cursor: pointer;
+               }
+            }
+        }
+        
+        .userProfileInput::placeholder {
+            color: $primary-color;
+        }
+        .userProfileInput{
+            width: 100%;
+            max-width: 450px;
+            display: block;
+            padding: 12px 20px;
+            margin: 0 auto 15px;
+            background: $white;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            color: $primary-color;
+        }
+        .userProfileGender{
+            width: 100%;
+            max-width: 450px;
+            display: block;
+            padding: 12px 20px;
+            margin: 0 auto 5px;
+            color: $primary-color;
+        }
+
+        .genderDiv{
+            width: 100%;
+            max-width: 450px;
+            display: block;
+            padding: 0px;
+            margin: 0 auto 15px;
+            background:white;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            color: $primary-color;
+
+            .genderMenu{   
+                width: 50%;
+                display: inline-block;
+                margin: 0;
+                padding: 12px 20px;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            .activeGender{
+               background: #C1D8C4;
+               border-radius: 12px;
+            }
+
+            .mouseNotActive{
+                pointer-events: none;
+            }
+        }
+
+        .editBtn{
+        width: 100%;
+        max-width: 450px;
+        display: block;
+        padding: 12px;
+        margin: 30px auto;
+        background: #0A4422;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        color: white;
+        }
+
+        .saveDiv{
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px;
+            margin: 30px auto;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            color: #0A4422;
+
+            .saveMenu{   
+                width: 45%;
+                display: inline-block;
+                margin: 0;
+                padding: 12px 20px;
+                cursor: pointer;
+                text-align: center;
+                background: #0A4422;
+                border-radius: 12px;
+                color: white;
+            }
+            .cancelMenu{   
+                width: 45%;
+                display: inline-block;
+                margin: 0;
+                padding: 12px 20px;
+                cursor: pointer;
+                text-align: center;
+                background: #CF1E50;
+                color: white;
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+.savedJobRow{
+    width: 90%;
+    margin: auto !important;
+}
+
+@media screen and (max-width:768px) {
+    .userFilter{
+        display: block;
+    }
+
+    .menuWeb{
+        display: none !important;
+    }
+}

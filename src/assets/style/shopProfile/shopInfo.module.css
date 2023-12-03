@@ -1,0 +1,184 @@
+
+.leftInfo{
+background: #C4C4C4;
+box-shadow: 0px 16px 32px rgba(47, 26, 14, 0.28);
+border-radius: 12px;
+/* width: 80% !important; */
+height: 334px;
+position: relative;
+bottom: 131px;
+margin-bottom: -19px;
+/* display: flex;
+justify-content: center; */
+
+
+}
+
+.shopInfoImage img{
+    width: 100%;
+    height: 262px;
+    box-shadow: 0px 16px 32px rgba(47, 26, 14, 0.28);
+    object-fit: cover;
+border-radius: 12px;
+}
+
+.shopInfoImage{
+    /* padding: 33px; */
+}
+
+.infoSubDiv{
+    padding: 33px;
+}
+
+.socialMediaDiv{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    align-items: baseline;
+
+}
+
+.leftInfoFirstSection{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.profileInfoParagraph{
+    max-height: 118px;
+    overflow: hidden;
+}
+
+.favoriteIconDiv i{
+    font-size: 25px;
+    margin: 0px 5px;
+    color: var(--primary-color);
+}
+.leftInfoFirstSection h3{
+    color: #0a4422;
+}
+.favoriteIconDiv{
+    cursor: pointer;
+}
+.webAddress{
+    cursor: pointer;
+    padding-top: 10px;
+    
+}
+.webAddress i{
+    color: var(--primary-color);
+    padding: 0px 5px
+}
+@media (max-width: 990px) {
+    .favoriteIconDiv i{
+        font-size: 20px;
+        margin: 0px 3px;
+        color: var(--primary-color);
+    }
+    .leftInfo{
+        display: none;
+    }
+    .shopInfoImage img{
+        width: 120px;
+        height: 120px;
+    }
+    .shopInfoImage{
+        /* width: 100%; */
+        padding: 0px 10px;
+    
+    }
+    .infoSubDiv{
+        display: flex;
+        padding: 9px;
+        padding-top: 30px;
+
+    }
+    .leftInfoFirstSection{
+        width: 100%;
+    }
+    .leftInfoFirstSection h3{
+        font-size: 21px; 
+        overflow: hidden;
+        max-width: 135px;
+        height: 49px;
+
+    }
+    
+    .profileInfoParagraphMobile{
+        
+        max-height: 339px !important;
+        padding: 21px;
+        overflow: hidden;
+        
+
+    }
+    .profileInfoParagraphMobile h4{
+        color: #0a4422;
+    }
+    .contactDiv{ 
+        
+    /* padding: 0px 8px; */
+       padding-top: 8px;
+       /* padding: 35px 17px 0px; */
+    }
+    .webAddress{
+        display: none;
+    }
+    .webAddressMobile{
+        cursor: pointer;
+        padding-top: 10px;
+        
+    }
+    .webAddressMobile i{
+        color: var(--primary-color);
+        padding: 0px 5px
+    }
+}
+
+@media (max-width: 480px) {
+    .webAddressMobile{
+    font-size: 12px;
+}
+}
+
+
+
+@media (min-width: 1024px) {
+    .leftInfoMobile{
+        display: none;
+    }
+    .profileInfoParagraphMobile{
+        display: none;
+    }
+    .contactDiv{
+        display: none;
+    }
+    .webAddressMobile{
+        display: none;
+    }
+}
+
+
+@media (min-width: 480px)  and (max-width: 990px){
+    .shopInfoImage img{
+    width: 330px;
+    height: 299px;
+    }
+    .contactDiv{
+        padding: 35px 42px 0;
+        
+    }
+    .profileInfoParagraphMobile{
+        padding: 65px;
+    }
+    .workHoursDiv{
+        width: 84%;
+    }
+    .shopInfoImage{
+        padding: 0px 47px;
+    }
+    .webAddressMobile{
+        margin: 2px 43px;
+
+    }
+}

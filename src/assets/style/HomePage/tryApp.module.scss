@@ -1,0 +1,380 @@
+@import "../_App.module.scss";
+.tryAppMainContainer {
+  padding-top: 60px;
+  .tryAppContainer,
+  .tryAppContainerAr {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 29px;
+    // height: 330px;
+    margin-bottom: 25px;
+    background-position: bottom;
+    .tryAppSubDiv,
+    .tryAppSubDivAr {
+      color: $white;
+      .tryAppInfo {
+        // padding: 8% 14%;
+        // padding: 4% 9%;
+        padding: 51px 109px;
+      }
+
+      h3 {
+        font-size: 33px;
+        margin: 0px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+    .tryAppBtnDiv {
+      // .googlePlayBtn {
+        // background-color: $primary-color;
+        // border-radius: 6px;
+        // border: none;
+        // margin: 0px 27px 0px 0px;
+         display: flex;
+        .downloadDiv {
+          height: 66px;
+          background: $secondary-color;
+          padding: 11px;
+          display: flex;
+          align-items: center;
+          color: $primary-color;
+          border-radius: 14px;
+          width: max-content;
+          margin: 0px 16px 0px 0px;
+          i{
+            font-size: 39px;
+            margin: 1px;
+          
+          }
+        }
+        .tryAppText{
+          // padding: 0px 10px;
+          p:first-child{
+            font-size: 13px;
+          }
+          p{
+            margin-bottom: 0px !important;
+          }
+        }
+      // }
+      // .googlePlayBtnAr {
+      //   // background-color: $primary-color;
+      //   border-radius: 6px;
+      //   border: none;
+      //   margin: 0px 0px 0px 17px;
+      //   img {
+      //     height: 41px;
+      //     // width: 100%;
+      //     object-fit: cover;
+      //   }
+      // }
+      // .appleContainer {
+      //   // background-color: $primary-color;
+      //   border-radius: 6px;
+      //   border: none;
+      //   img {
+      //     height: 41px;
+      //     // width: 100%;
+      //     object-fit: contain;
+      //   }
+      // }
+    }
+  }
+  .subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+    // width: 40%;
+    .subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: $mixLightgreenGrey;
+    }
+    .subscribeBtnDiv {
+      padding-top: 5px;
+
+      .subscribeButton {
+        background-color: $primary-color;
+
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+      .subscribed {
+        background-color: $secondary-color;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: $primary-color;
+        i {
+          font-size: 18px;
+        }
+        p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .subscribeDivAr {
+    // width: 40%;
+    .subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: $mixLightgreenGrey;
+    }
+    .subscribeBtnDiv {
+      padding-top: 5px;
+
+      .subscribeButton {
+        background-color: $primary-color;
+
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+      .subscribed {
+        background-color: $secondary-color;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: $primary-color;
+        i {
+          font-size: 18px;
+        }
+        p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+.emailValidation {
+  color: $danger-color;
+}
+.subscribeParagraphAr {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .tryAppSubDiv {
+    background-image: url("../../images/HomePageImages/tryAppMobile.png") !important;
+    // aspect-ratio: 5/6;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    .tryAppInfo {
+      padding: 9px 31px !important;
+    }
+    .tryAppBtnDiv {
+      display: flex;
+      img {
+        object-fit: contain;
+      }
+      // .tryAppInfoAr {
+      //   padding: 4% 14%;
+      //   p{
+      //     font-size: 14px;
+      //   }
+      // }
+    }
+  }
+
+  .tryAppSubDivAr {
+    background-image: url("../../images/HomePageImages/tryAppMobileAr.png") !important;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    .tryAppInfo {
+      // padding: 4% 14%;
+      padding: 9px 31px !important;
+      p {
+        font-size: 14px;
+      }
+    }
+    .tryAppBtnDiv {
+      justify-content: center;
+      display: flex;
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .subscribeDiv {
+    width: 56%;
+    text-align: left;
+    padding-top: 45px;
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  .subscribeDivAr {
+    width: 50%;
+    text-align: right;
+    padding-top: 45px;
+    // position: absolute;
+    // left: 35px;
+
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+@media (min-width: 880px) {
+  .tryAppContainer {
+    background-image: url("../../images/HomePageImages/tryAppImage.png");
+    aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .tryAppContainerAr {
+    background-image: url("../../images/HomePageImages/tryAppArabic.png");
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .subscribeDivAr {
+    display: flex;
+    flex-direction: column;
+    width: 80% !important;
+    padding-top: 45px;
+  }
+  .tryAppInfoAr {
+    position: absolute;
+    left: 68px;
+    padding-top: 63px;
+    padding: 4% 9%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .tryAppContainer {
+    background-position: bottom;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 880px) {
+  .tryAppSubDiv {
+    background-image: url("../../images/HomePageImages/tryAppTablet.png") !important;
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .tryAppSubDivAr {
+    background-image: url("../../images/HomePageImages/tryAppTabletAr.png") !important;
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+
+    background-position-x: inherit;
+  }
+  .tryAppInfo{
+    padding: 51px 63px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  //   .tryAppSubDiv {
+  //     background-image: url("../../images/HomePageImages/tryAppMobile.png") !important;
+  //     aspect-ratio: 8/7;
+  //     background-size: cover;
+  //     border-radius: 10px;
+  //     background-repeat: no-repeat;
+
+  // }
+  .tryAppInfo {
+    // padding: 3% 9%;
+    padding: 9px 31px;
+  }
+  .tryAppInfoAr {
+    // padding: 4% 9%;
+    padding: 9px 31px;
+  }
+  .subscribeDiv {
+    width: 56%;
+  }
+  .subscribeDivAr {
+    width: 56%;
+  }
+}
+
+@media (max-width: 365px) {
+  .tryAppBtnDiv {
+    .googlePlayBtn {
+      // margin: 0px 13px 0px 0px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tryAppSubDiv {
+    .tryAppBtnDiv {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .downloadDiv{
+    height: 46px !important;
+    width: 122px !important;
+    margin: 0px 6px 0px 0px !important;
+
+    i{
+      font-size: 26px !important;
+    }
+  }
+
+  .tryAppText{
+    width: max-content;
+    p{
+      font-size: 10px !important;
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .tryAppMainContainer {
+    .tryAppContainer {
+      .tryAppBtnDiv {
+        .googlePlayBtn {
+          img {
+            height: 32px !important;
+          }
+          .appleContainer {
+            img {
+              height: 32px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

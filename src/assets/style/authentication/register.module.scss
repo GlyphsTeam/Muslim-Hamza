@@ -1,0 +1,337 @@
+@import "../_App.module.scss";
+
+.ContactUsPage{
+    height: 100% !important;
+}
+.registerPage {
+  background-color: $tertiary-color;
+  flex-wrap: wrap;
+  justify-content: center;
+//   height: 90vh;
+min-height: 90vh;
+
+  .rightAuth {
+    background: $white;
+    box-shadow: -8px 4px 19px rgba(10, 68, 34, 0.5);
+    border-radius: 32px 0px 0px 32px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 23px 0px;
+
+
+    //register component style
+    .registerFormDiv {
+      width: 60%;
+      margin: auto;
+      padding: 45px 15px 5px;
+
+      .subAuthTitle{
+        width: 70%;
+      }
+
+      .contactTitle{
+        color: $primary-color;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // gap: 20px;
+        input{
+            width: 45%;
+            margin: 0px 0px 20px;
+          }
+        
+
+        .middleFormInputs {
+          display: flex;
+          justify-content: space-between;
+
+        }
+        .changePasswordDiv{
+            margin: 0 0 20px;
+            .passwordInput{
+                input{
+                    margin: 0 0 10px;
+                }
+            }
+
+        }
+        .passwordInput{
+            display: flex;
+            position: relative;
+
+            div{
+                .passIcon{
+                    position: absolute;
+                    line-height: 45px;
+                }
+                .passIconLanguageEn{
+                    right: 10px;  
+                }
+                .passIconLanguageAr{
+                    left: 10px;  
+                }
+            }
+        }
+        input {
+          background: #ffffff;
+          border: 1px solid $primary-color;
+          border-radius: 12px;
+          height: 45px;
+          padding: 5px 10px;
+        }
+        .checkBox{
+            width: none !important;
+            height: 0px !important;
+            margin: 0px 0px 20px;
+        }
+
+        .validationWarn{
+            color: $danger-color;
+            width: 100%;
+            margin: 0;
+        }
+
+        .contactTextArea{
+            width: 100%;
+            min-height: 100px;
+            border-radius: 12px;
+            padding: 5px 10px;
+        }
+      }
+      .loginBtnsDiv{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .forgetPassBtn{
+            border: none;
+            background-color: transparent;
+        }
+    }
+      .signUpBtn{
+        margin: 20px 0;
+        height: 45px;
+        background: $primary-color;
+        border-radius: 12px;
+        color: $white;
+      }
+
+      .deleteAccountBtn{
+        margin: 20px 5px;
+        height: 45px;
+        border-radius: 12px;
+        color: $white;
+      }
+
+      .ConfirmDeleteAccountBtn{
+        background: $primary-color;
+      }
+      .CancelDeleteAccountBtn{
+        background: #CF1E50;
+      }
+
+      .contactBtn{
+        display: flex;
+        margin: 20px auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkboxDiv{
+        display: flex;
+        // padding: 10px 0;
+    align-items: center;
+    flex-direction: column;
+        input{
+            // height: 27px;
+            width: 27px;
+            margin: 0 4px;
+            height: 27px !important;
+            // margin: 0 4px;
+
+        }
+
+        div{
+            display: flex;
+            padding: 10px 0;
+            input{
+                // height: 27px;
+                width: 27px;
+                margin: 0 4px;
+                // height: 0px !important;
+            }
+
+            label{
+                padding: 0 4px;
+            }
+        }
+      }
+
+      .checkboxDivPost{
+        display: flex;
+    align-items: center;
+        input{
+            // height: 27px;
+            width: 27px;
+            margin: 0 4px;
+            height: 16px !important;
+            // margin: 0 4px;
+
+        }
+
+        div{
+            display: flex;
+            padding: 10px 0;
+            input{
+                // height: 27px;
+                width: 27px;
+                margin: 0 4px;
+                // height: 0px !important;
+            }
+
+            label{
+                padding: 0 4px;
+            }
+        }
+      }
+
+      .signInBtn{
+        border: 1px solid $primary-color;
+        border-radius: 12px;
+        width: 70%;
+        margin: 40px auto;
+        display: flex;
+        padding: 5px 10px;
+        justify-content: center;
+        color: $black;
+        cursor: pointer;
+
+        .btnAuthAction{
+            color: $primary-color;
+            padding: 0 5px;
+        }
+      }
+    }
+
+    //OTP component style
+
+    .OTPFormDiv{
+        padding: 40px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        .otpHeader{
+            text-align: center;
+            padding: 0px 10px 50px;
+        }
+        form{
+            .otpFields{
+                width: 60%;
+                display: flex;
+                justify-content: center;
+                margin: auto;
+                input{
+                    width: 40px;
+                    text-align: center;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid;
+                    margin: 0 5px;
+                }
+            }
+            .validationWarn{
+                color: $danger-color;
+                width: 100%;
+                margin: 15px 0 0;
+                text-align: center;     
+            }
+        }
+      
+        .countDownDiv{
+            padding: 30px 10px;
+            p{
+                text-align: center;
+                color: $primary-color;
+            }
+            .resendCodeDiv{
+                display: flex;
+                margin: auto;
+                justify-content: center;
+                p{
+                    margin: 0 5px;
+                    color: $primary-color;
+                }
+                .resendBtn{
+                    border: none;
+                    background: transparent;
+                    color: $primary-color;
+                }
+            }
+        }
+        .VerifyBtn{
+            margin: 10px auto;
+            width: 40%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            background: $primary-color;
+            color: $white;
+        }
+    }
+    
+  }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .registerPage {
+        .rightAuth {
+            .registerFormDiv {
+                width: 85%;
+                padding: 20px 15px;
+                .subAuthTitle{
+                    width: 100%;
+                  }
+                .signInBtn{
+                    width: 75%;
+                    text-align: center;
+                    flex-direction: column;
+                }
+            }
+            .OTPFormDiv{
+                padding: 20px 0;
+            }
+        }
+    }
+
+ 
+}
+@media screen and (max-width: 768px) {
+    .registerPage {
+        .rightAuth {
+            border-radius: 32px 32px 0px 0px;
+            width: 100%;
+            .registerFormDiv {
+                width: 85%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .registerPage {
+        .rightAuth {
+            .registerFormDiv {
+                width: 95%;
+            }
+        }
+    }
+}

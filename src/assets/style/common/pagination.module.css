@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 29px;
+}
+.pagination .paginationBtn {
+  color: #153866;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 0px 12px;
+  border-radius: 5px;
+  border: none;
+}
+.activeLi {
+  padding: 0 5px;
+  background: #2B613F;
+  margin: 0px 12px;
+  color: white !important;
+}
+.pagination li {
+  color: #0b2649;
+  cursor: pointer;
+  list-style: none;
+  background: #F0F0F0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  width: 100px;
+  text-align: center;
+  min-width: 100px;
+}
+.modal{
+  background-color: #0b2649;
+}

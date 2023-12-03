@@ -1,0 +1,127 @@
+
+@import "../_App.module.scss";
+
+.mainJobCard{
+    max-height: 275px;
+    padding: 20px 3px 5px !important;
+    max-width: 380px !important;
+    min-width: 220px;
+    overflow: hidden;
+
+    .jobCardBody{
+        padding: 0;
+        border-radius: 14px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        max-height: 230px;
+        overflow: hidden;
+        background: $box-color;
+
+        .jobImage{
+            width: 70px;
+            height: 70px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .jobTitle{
+            font-size: 18px;
+            margin: 15px 0 5px;
+            overflow: hidden;
+            height: 25px;
+        }
+
+        .jobLocation{
+            font-size: 15px;
+            overflow: hidden;
+            height: 23px;
+            color: $highlight-color;
+            margin: 0;
+        }
+
+        .actionDiv{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 25px 10px 10px;
+            height: 53px;
+            align-items: center;
+
+            i{
+                cursor: pointer;
+            }
+
+            .favIconColor{
+                color: $highlight-color;
+            }
+        }
+
+        .jobDescription{
+            margin: 0;
+            padding: 12px 20px;
+            text-align: justify;
+            overflow: hidden;
+            height: 90px;
+            color: $primary-color;
+        }
+
+        .jobCardFooter{
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+
+            .jobType{
+                color: $highlight-color;
+                font-weight: 500;
+                margin: 0;
+            }
+            .jobCreate{
+                color: $highlight-color;
+                font-weight: 400;
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .approvalDiv{
+                display: flex;
+
+                .waitingApproval{
+                    color: #CF1E50;
+                }
+                .published{
+                    color:#0A4422;
+                }
+                .deleteIcon{
+                    color: #CF1E50;
+                    padding: 0 12px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.filterResult{
+    color: $primary-color;
+    border: 2px solid $primary-color !important;
+    width: fit-content !important;
+    text-align: center;
+    padding: 10px 18px !important;
+    margin: 15px 5px 10px !important;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+
+    i{
+        position: absolute;
+        font-size: 14px;
+        top: 3px;
+        cursor: pointer;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .mainJobCard{
+        max-width: 325px !important;
+        min-width: 220px;
+        margin: auto;
+    }
+}

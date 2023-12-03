@@ -1,0 +1,13 @@
+@import "../_App.module.scss";
+
+.menu{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    h2{
+        color: $primary-color;
+    }
+}
+.activeMenue{
+    background: $secondary-color;
+}

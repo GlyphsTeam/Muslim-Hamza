@@ -1,0 +1,117 @@
+@import "../_App.module.scss";
+.aboutUsMain {
+  // height: 450px;
+  padding: 72px;
+  .aboutTitle {
+    width: fit-content;
+    color: $primary-color;
+    span {
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+  .aboutTopInfo {
+    display: flex;
+    padding-top: 37px;
+    .aboutImage {
+      // width: 100%;
+      padding: 0px;
+      img {
+        height: 353px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  .aboutParagraph {
+    // width: 100%;
+    h5{
+      color: $primary-color
+    }
+  }
+  .socialMediaDiv {
+    padding-top: 86px;
+    h3{
+      span{
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+  
+  .socialMediaSubDiv{
+    display: flex;
+    gap: 21px;
+    padding-top: 18px;
+     .socialMediaIcon{
+      a{
+        color: $primary-color;
+        i{
+          font-size: 28px;
+        }
+      }
+     }
+  }
+}
+}
+@media (max-width: 768px) {
+  .aboutUsMain {
+    padding: 0px;
+    .aboutTopInfo {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0px;
+      .aboutImage {
+        img {
+          height: 353px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 0px !important;
+        }
+      }
+    }
+  }
+  .aboutTitle {
+    display: none;
+  }
+
+  .aboutParagraph {
+    padding: 21px;
+    .aboutTitleMobile {
+      padding: 22px 0px;
+      width: fit-content;
+      color: $primary-color;
+      font-size: 31px;
+      span {
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+  }
+  .socialMediaDiv {
+    padding-top: 42px;
+    padding-bottom: 29px !important;
+      padding: 5px;
+    span{
+      color: $primary-color;
+    }
+    h3{
+      color: $primary-color;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1920px) {
+  .aboutTitleMobile {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .aboutTitle {
+    display: none;
+  }
+  .aboutTitleMobile {
+    margin: 15px 0;
+  }
+  .aboutTopInfo{
+    flex-direction: column-reverse;
+  }
+}

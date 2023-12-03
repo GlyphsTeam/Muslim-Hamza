@@ -1,0 +1,46 @@
+iframe {
+    overflow: hidden;
+    background: none;
+    height: 413px !important;
+    width: 80%;
+    display: flex;
+    margin: 0 auto 0 35px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    border-radius: 5px;
+    
+  }
+
+
+  @media (max-width: 480px) {
+    iframe {
+        overflow: hidden;
+        background: none;
+        height: 413px !important;
+        width: 95%;
+        display: flex;
+        margin: auto;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+        border-radius: 5px;
+       
+      }
+      .shopMap{
+        padding-top: 15px;
+      }
+  }
+
+
+  
+@media (min-width: 480px)  and (max-width: 990px){
+    iframe {
+        overflow: hidden;
+        background: none;
+        height: 450px !important;
+        width: 700px;
+        display: flex;
+        margin: auto;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+        border-radius: 5px;
+        margin: auto;
+       
+      }
+}

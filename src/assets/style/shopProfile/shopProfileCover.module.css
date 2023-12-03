@@ -1,0 +1,21 @@
+.profileImageCoverDiv img{
+    width: 100%;
+    height: 434px;
+    object-fit: cover;
+}
+
+.profileImageCoverDiv video{
+    width: 100%;
+    height: 434px;
+    object-fit: cover;
+}
+
+@media (max-width: 480px){
+    .profileImageCoverDiv img{
+        height: 217px;
+}
+.profileImageCoverDiv video{
+    height: 217px;
+}
+
+}

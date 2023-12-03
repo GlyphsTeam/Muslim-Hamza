@@ -1,0 +1,85 @@
+.contactParagraph{
+    margin: 2px;
+}
+.contactInfoDiv{
+    color: #0a4422;
+    
+}
+.showStoreTitle{
+    display: none !important;
+}
+.contactInfoDiv a{
+    color: #0a4422;
+
+}
+.contactInfoDiv a:hover{
+    color: #0a4422;
+
+}
+.contactInfoDiv a{
+    color: #0a4422;
+
+}
+.contactInfoDiv a:hover{
+    color: #0a4422;
+
+}
+.showTitle{
+    color: #0a4422;
+    padding: 0px 10px;
+    margin-bottom: 18px;
+}
+
+.contactInfoMobileShop{
+    display: flex !important;
+    flex-wrap: wrap;
+}
+.contactInfoMobileShop i{
+    padding: 0px 7px;
+
+ 
+}
+
+.contactInfoMobileShop a{
+    padding: 0px 16px;
+}
+.contactInfoDiv i{
+    padding: 0px 7px;
+}
+.contactInfoMobileDiv a{
+    color: #0a4422 !important;
+  
+
+}
+.contactInfoMobileDiv i{
+    padding: 0px 10px;
+}
+@media (max-width: 480px) {
+    .contactInfoMobileDiv{
+        background: rgba(10, 68, 34, 0.2);
+        border-radius: 5px;
+        padding: 11px;
+        width: 100%;
+        
+    }
+    .contactInfoMobileDiv a{
+        color: #0a4422;
+    
+    }
+    
+    .contactInfoMobileDiv a:hover{
+        color: #0a4422;
+    
+    }
+    .contactInfoMobileShop p{
+        font-size: 12px;
+        width: fit-content;
+    }
+
+    .contactInfoMobileDiv i{
+        padding: 0px 7px; 
+    }
+    .contactInfoMobileDiv p{
+        padding: 0px !important;
+    }
+}

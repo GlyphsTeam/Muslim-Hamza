@@ -1,0 +1,59 @@
+.workHoursDiv{
+    padding: 10px;
+    background: rgba(10, 68, 34, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    max-height: 205px;
+    width: 82%;
+    margin: 0 auto 0px 24px;
+   /* padding-top: 10px; */
+}
+
+.workHoursContainer{
+    padding-top: 30px;
+}
+.workHoursRight{
+    display: flex;
+    margin-bottom: 21px;
+}
+.workHoursRight p{
+    width: fit-content;
+    margin: 0px 10px;
+}
+.closeWorkingHours{
+    color: red;
+}
+.openWorkingHours{
+    color: green;
+}
+@media (max-width: 990px) {
+    .workHoursContainerMobile{
+        /* padding-top: 30px; */
+    }
+    .workHoursContainer{
+        display: none !important;
+    }
+    .workHoursDiv{
+        width: 88%;
+
+    }
+    .workHoursRight{
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .workHoursContainerMobile{
+       display: none;
+    }
+}
+
+
+@media (min-width: 480px)  and (max-width: 990px){
+  
+    .workHoursDiv{
+        width: 84%;
+        margin: auto;
+    }
+}

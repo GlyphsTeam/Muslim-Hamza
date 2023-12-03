@@ -1,0 +1,16 @@
+
+:root {
+    --primary-color: #0A4422;
+    --secondary-color: #B1D7B4;
+    --tertiary-color : #CEDAD3;
+    --box-color : #F1F1F1;
+    --sub-box-color :  rgba(247, 254, 255, 0.1);
+    --highlight-color: #565252;
+    --secondary-highlight-color: #ca9800;
+    --primary-button-font-color: #ffff;
+    --header-footer-box-color: #F1F1F1;
+    --black : black;
+    --white: white;
+    --danger-color: red;
+    --success-color : green;
+    }

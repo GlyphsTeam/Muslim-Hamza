@@ -1,0 +1,16 @@
+
+.masjidSearchDiv{
+padding-top: 17px;
+}
+
+.masjidSearchDiv input {
+    background: #cbcbcb;
+    border-radius: 5px;
+    padding: 13px;
+    width: 100%;
+    border: none;
+}
+
+.searchContainer{
+    display: none ;
+}

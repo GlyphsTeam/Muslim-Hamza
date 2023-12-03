@@ -1,0 +1,21 @@
+
+
+
+.legalDiv h3{
+color: var(--primary-color);
+}
+.termsBtn{
+    background: var(--primary-color);
+    border-radius: 25px;
+    color: #fff!important;
+    padding: 10px 20px;
+}
+.list{
+    list-style-type: none;
+}
+.list li a {
+    color: black;
+}
+.legalDiv h2{
+    color: var(--primary-color); 
+}

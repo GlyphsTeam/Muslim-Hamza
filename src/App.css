@@ -1,0 +1,22 @@
+@import './assets/style/App.module.css';
+
+body{
+    background-image: url('./assets/images/Common/pattern.png')  ;
+    background-size: contain;
+
+    padding-right: 0 !important;
+    /* overflow: visible !important; */
+    /* background-color: #E7ECE8 !important; */
+    
+}
+
+a{
+ 
+    text-decoration: none !important;
+  }
+
+  
+ .service-accordion{
+    height: 320px;
+    overflow-y:auto ;
+ }

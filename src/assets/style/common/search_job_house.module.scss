@@ -1,0 +1,72 @@
+@import "../_App.module.scss";
+.mainSearchDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    form{
+        background: $box-color ;
+        border-radius: 12px;
+
+        .searchIcon{
+            position: absolute;
+            padding: 11px 15px;
+            color:$box-color ;
+        }
+        input{
+            padding: 7px 10px;
+            border: none;
+            outline: none;
+        }
+        .keyWordInput{
+            padding: 7px 45px;
+            background: transparent;
+        }
+        .zipcodeInput{
+            background: $box-color;
+            border-radius: 12px;
+        }
+        .zipcodeInput::placeholder{
+            color: $box-color;
+        }
+    }
+
+    .addPostBtn{
+        border-radius: 12px;
+        background: $primary-color;
+        border: none;
+        outline: none;
+        color: $white;
+   
+        a{
+            color: $white !important
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .mainSearchDiv{
+        form{
+            width: 60%;
+
+            .searchIcon{
+                padding: 11px 5px;
+            }
+            input::placeholder {
+                font-size: 12px;
+              }
+            .keyWordInput{
+                padding: 7px 3px 7px 23px;
+                width: 60%;
+            }
+            .zipcodeInput{
+                width: 40%;
+
+            }
+        }
+        .addPostBtn{
+            font-size: 12px;
+            padding: 7px 12px;
+        }
+    }
+}
