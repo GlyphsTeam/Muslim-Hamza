@@ -5,9 +5,12 @@ import { useEffect } from "react";
 import Button from "../../common/Button";
 import { Link } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
-
+import useAxios from "../../../hooks/useAxios";
 export default function MainCategory({ HomeData }) {
-  const mainCategoryData = HomeData?.categories;
+  const url = "main-market"
+  console.log("HomeData>>>",HomeData)
+  const[Data] = useAxios(url);
+  const mainCategoryData = Data?.data;
 
   const mainCategoryCards = mainCategoryData
     ?.slice(0, 10)

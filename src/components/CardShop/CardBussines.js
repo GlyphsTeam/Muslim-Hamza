@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 function Card({ navUrl }) {
     const { id, id2 } = useParams();
-    const url = `stores?main_id=${id}`;
+    const url = `stores?main_id=${id}&category_id=${id2}`;
     const [Data] = useAxios(url);
     const showStoreData = Data?.data;
     const categoryRedux = useSelector(state => state.category);
