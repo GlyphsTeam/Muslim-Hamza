@@ -1,31 +1,34 @@
 import style from "../../assets/style/showJob/showJobSubInformation.module.css";
 import ContactInfo from "../common/ContactInfo";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useSelector } from 'react-redux';
+import { jobsReduxState } from '../../redux/Job';
 
-function ShowJobSubInformation({ showJobData }) {
+function ShowJobSubInformation() {
+  const jobReduxS = useSelector(jobsReduxState);
   return (
     <div className={style.showJobSubInformationDiv}>
-      {showJobData?.type && (
+      {jobReduxS.showJobPage?.type && (
         <div className={style.ShowJobSubInformationImageDiv}>
-          <LazyLoadImage src={require("../../assets/images/Common/time.png")} alt="timeImage"/>
-          <p>{showJobData?.type}</p>
+          <LazyLoadImage src={require("../../assets/images/Common/time.png")} alt="timeImage" />
+          <p>{jobReduxS.showJobPage?.type}</p>
         </div>
       )}
-      {showJobData?.salary && (
+      {jobReduxS.showJobPage?.salary && (
         <div className={style.ShowJobSubInformationImageDiv}>
-          <LazyLoadImage src={require("../../assets/images/Common/salary.png")} alt="salerayImage"/>
+          <LazyLoadImage src={require("../../assets/images/Common/salary.png")} alt="salerayImage" />
 
-          <p>{`$ ${showJobData?.salary}`}</p>
+          <p>{`$ ${jobReduxS.showJobPage?.salary}`}</p>
         </div>
       )}
-      {showJobData?.place && (
+      {jobReduxS.showJobPage?.place && (
         <div className={style.ShowJobSubInformationImageDiv}>
-          <LazyLoadImage src={require("../../assets/images/Common/address.png")} alt="addressImage"/>
+          <LazyLoadImage src={require("../../assets/images/Common/address.png")} alt="addressImage" />
 
-          <p>{showJobData?.place}</p>
+          <p>{jobReduxS.showJobPage?.place}</p>
         </div>
       )}
-      <ContactInfo data={showJobData} />
+      <ContactInfo data={jobReduxS.showJobPage}/>
     </div>
   );
 }

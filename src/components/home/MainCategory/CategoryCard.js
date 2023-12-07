@@ -7,7 +7,7 @@ import { setSubCategoryTitle } from "../../../redux/CategoryRedux";
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function CategoryCard({name, description, id, image}) {
+function CategoryCard({name, id, image}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

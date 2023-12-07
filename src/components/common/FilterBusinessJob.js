@@ -8,16 +8,16 @@ import { setSubCategoryTitle } from '../../redux/CategoryRedux';
 import {useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  houseReduxState,
+  jobsReduxState,
   setType, 
   setGender,
   setCity,
   setActiveFilter
-} from '../../redux/House';
+} from '../../redux/Job';
 
 function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState }) {
   const dispatch = useDispatch();
-  const housePageState = useSelector(houseReduxState);
+  const jobReduxState = useSelector(jobsReduxState);
 
 //call redux data
 
@@ -30,7 +30,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
     if(filterType === 'housing'){
       switch(mainId) {
         case 'Type':
-          if(subId === housePageState.type){
+          if(subId === jobReduxState.type){
             dispatch(setType(''))
             dispatch(setActiveFilter(''));
           }else{
@@ -39,7 +39,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
           }
           break;
         case 'Gender':
-          if(subId === housePageState.gender){
+          if(subId === jobReduxState.gender){
             dispatch(setGender(''))
             dispatch(setActiveFilter(''));
           }else{
@@ -48,7 +48,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
           }
           break;
         case 'City':
-          if(subId === housePageState.city){
+          if(subId === jobReduxState.city){
             dispatch(setCity(''))
             dispatch(setActiveFilter(''));
           }else{
@@ -63,7 +63,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
     if(filterType === 'job'){
       switch(mainId) {
         case 'Type':
-          if(subId === housePageState.type){
+          if(subId === jobReduxState.type){
             dispatch(setType(''))
             dispatch(setActiveFilter(''));
           }else{
@@ -72,7 +72,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
           }
           break;
         case 'City':
-          if(subId === housePageState.city){
+          if(subId === jobReduxState.city){
             dispatch(setCity(''))
             dispatch(setActiveFilter(''));
           }else{
@@ -162,7 +162,7 @@ function FilterBuiness({filterType, filterTitle, categoryState, setCategoryState
                     :
                    Data?.data?.map((item, index) => (
                       <div key={index} className={style.accordionDiv}>
-                       <Accordion subCategory={item.categories} index={index} title={item.title} subData= {item.subtitle} filerAction = {filerAction} activeFilter = {housePageState.activeFilter} />
+                       <Accordion subCategory={item.categories} index={index} title={item.title} subData= {item.subtitle} filerAction = {filerAction} activeFilter = {jobReduxState.activeFilter} />
                       </div>
                    ))
 

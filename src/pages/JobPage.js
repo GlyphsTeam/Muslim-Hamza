@@ -1,42 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import filterStyle from '../assets/style/common/filteredPage.module.css'
-import Filter from '../components/common/FilterBusiness';
-import SearchHouse from '../components/common/Search_job_house';
+import Filter from '../components/common/FilterBusinessJob';
+import SearchJob from '../components/common/SearchJob';
 import useAxios from '../hooks/useAxios';
 import JobSection from '../components/job/JobSection';
 import Interested from '../components/common/interested/InterestedSection';
+import { 
+  setJobs,
+  setJobTotal, 
+  setActiveIndex, 
+  setPage,
+  jobsReduxState
+} from '../redux/Job';
+import { useDispatch ,useSelector } from 'react-redux'
+function JobPage({ baseUrl }) {
 
-function JobPage({baseUrl}) {
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(9);
-  const [keyword, setKeyWord] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [city, setCity] = useState('');
-  const [type, setType] = useState('');
-  const [mobileFilter, setMobileFilter] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const dispatch = useDispatch();
+  const jobReduxState = useSelector(jobsReduxState);
 
-  const nextPage = ()=> {
-    if((total/limit) > activeIndex+1){
-        setPage(page+1);
-        setActiveIndex(activeIndex+1);
+  const nextPage = () => {
+    if ((total / jobReduxState.limit) > jobReduxState.activeIndex + 1) {
+      dispatch(setPage(jobReduxState.page + 1));
+      dispatch(setActiveIndex(jobReduxState.activeIndex + 1));
     }
-}
-const previousPage = ()=> {
-    if(page > 1){
-        setPage(page-1);
-        setActiveIndex(activeIndex-1);
+  }
+  const previousPage = () => {
+    if (jobReduxState.page > 1) {
+      dispatch(setPage(jobReduxState.page - 1));
+      dispatch(setActiveIndex(jobReduxState.activeIndex - 1));
     }
-}
+  }
 
-let customApi = `jobs?limit_by=${limit}&page=${page}&keyword=${keyword}&zip_code=${zipCode}&city=${city}&type=${type}`;
-      
-useEffect(() => {
-  customApi = `jobs?limit_by=${limit}&page=${page}&keyword=${keyword}&zip_code=${zipCode}&city=${city}&type=${type}`;
-}, [page]);
+  let customApi = `jobs?limit_by=${jobReduxState.limit}&page=${jobReduxState.page}&keyword=${jobReduxState.keyword}&zip_code=${jobReduxState.zipCode}&city=${jobReduxState.city}&type=${jobReduxState.type}`;
+
+  useEffect(() => {
+    customApi = `jobs?limit_by=${jobReduxState.limit}&page=${jobReduxState.page}&keyword=${jobReduxState.keyword}&zip_code=${jobReduxState.zipCode}&city=${jobReduxState.city}&type=${jobReduxState.type}`;
+  }, [jobReduxState.page]);
 
   const [Data] = useAxios(customApi);
-  const jobData = Data?.data;
+  dispatch(setJobs(Data?.data));
+  dispatch(setJobTotal(Data?.total))
   const total = Data?.total;
 
 
@@ -47,26 +50,26 @@ useEffect(() => {
 
   return (
     <>
-    <div className={`row ${filterStyle.pageContainer}`}>
+      <div className={`row ${filterStyle.pageContainer}`}>
 
-      <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>
-        <Filter filterType='job' filterTitle = 'Job' type = {type} setType = {setType} city ={city} setCity = {setCity} />
-      </div>
-
-      <div className={`col-sm-12 col-md-9 col-lg-9 ${filterStyle.pageRow}`}>
-        <SearchHouse mobileFilter = {mobileFilter} setMobileFilter={setMobileFilter} keyword = {keyword} setKeyWord={setKeyWord} zipCode={zipCode} setZipCode={setZipCode} />
-        <div className={`col-sm-12 mt-3 ${filterStyle.filterShow}`}>
-          {mobileFilter && (
-            <Filter filterType='job' filterTitle = 'Job'  type = {type} setType = {setType} city ={city} setCity = {setCity} />
-          )}
+        <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>
+          <Filter filterType='job' filterTitle='Job' />
         </div>
 
-        <JobSection jobData={jobData} limit = {limit} setCity = {setCity} setType = {setType} type = {type} city = {city} total={total} nextPage={nextPage} previousPage={previousPage} setActiveIndex = {setActiveIndex} activeIndex={activeIndex} page={page} setPage = {setPage} scrollPagination={scrollPagination} baseUrl={baseUrl} />
+        <div className={`col-sm-12 col-md-9 col-lg-9 ${filterStyle.pageRow}`}>
+          <SearchJob />
+          <div className={`col-sm-12 mt-3 ${filterStyle.filterShow}`}>
+            {jobReduxState.mobileFilter && (
+              <Filter filterType='job' filterTitle='Job' />
+            )}
+          </div>
+
+          <JobSection total={total} nextPage={nextPage} previousPage={previousPage}   scrollPagination={scrollPagination} baseUrl={baseUrl} />
+        </div>
+
       </div>
 
-    </div>
-
-    <Interested type='job' />
+      <Interested type='job' />
     </>
   )
 }

@@ -5,7 +5,11 @@ import Alert from "../alert/Alert";
 import { useLocation } from 'react-router-dom';
 import Share from "../../utils/Share";
 import useFetch from "../../hooks/useFetchPost";
+import { useSelector } from 'react-redux';
+import { marketState } from '../../redux/Market';
 function MainProductInfo({ showProductData }) {
+  const showProductInfo = useSelector(marketState);
+  
   const [showShareModal, setShowShareModal] = useState(false);
   const token = localStorage.getItem("arab_user_token");
   const [send, setSend] = useState(false);
@@ -86,12 +90,12 @@ function MainProductInfo({ showProductData }) {
             {showProductData?.email} */}
           </p>
         )}
-          <div className={style.locationDateContainer}>
-        <p className={style.locationStyle}>
-          <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
-          {showProductData?.place}
-        </p>
-      </div>
+        <div className={style.locationDateContainer}>
+          <p className={style.locationStyle}>
+            <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+            {showProductData?.place}
+          </p>
+        </div>
       </div>
       <div className={style.generalTipsDiv}>
         <h3>{t("General Tips")}</h3>
@@ -101,7 +105,7 @@ function MainProductInfo({ showProductData }) {
           <li>{t("Inspect the product before you buy it")}</li>
         </ul>
       </div>
-    
+
       {showAlert && (
         <Alert
           type="warning"

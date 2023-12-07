@@ -4,33 +4,29 @@ import useFetch from "../../hooks/useFetchPost";
 import Share from "../../utils/Share";
 import Alert from "../alert/Alert";
 import ReactHtmlParser from 'html-react-parser';
-
-function ShowJobMainInformation({ showJobData }) {
+import { useSelector } from 'react-redux';
+import { jobsReduxState } from '../../redux/Job';
+function ShowJobMainInformation() {
+  const jobReduxPage = useSelector(jobsReduxState);
   const [send, setSend] = useState(false);
   const [count, setCount] = useState(4);
   const [showAlert, setShowAlert] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
-  const [isFav, setIsFav] = useState(showJobData?.saved);
+  const [isFav, setIsFav] = useState(jobReduxPage?.showJobPage?.saved);
   const token = localStorage.getItem("muslim_comunity_token");
-  const id = showJobData?.id;
+  const id = jobReduxPage?.showJobPage?.id;
   const url = `/Show-Job/${id}`;
-
+  console.log("jobReduxPage>>>",jobReduxPage)
   let formData = new FormData();
   formData.append("id", id);
 
   useEffect(() => {
-    setIsFav(showJobData?.saved);
-  }, [showJobData?.saved]);
-  
+    setIsFav(jobReduxPage?.showJobPage?.saved);
+  }, [jobReduxPage?.showJobPage?.saved]);
+
   const [Res] = useFetch("favorite/job", formData, send);
 
   let favoriteIcon = isFav ? "fas fa-star" : "far fa-star";
-
-
-  useEffect(() => {
-    setIsFav(showJobData?.saved)
-  },[showJobData?.saved]);
-
 
   const handleClick = () => {
     setShowShareModal(true);
@@ -42,7 +38,7 @@ function ShowJobMainInformation({ showJobData }) {
       setIsFav(!isFav);
       setTimeout(() => {
         setSend(false);
-       
+
       }, 100);
     } else {
       setShowAlert(true);
@@ -54,32 +50,32 @@ function ShowJobMainInformation({ showJobData }) {
 
   return (
     <>
-    <div className="d-flex justify-content-between ">
-      <div className={style.rightShowJobContainer}>
-        <p> {showJobData?.created_at} </p>
-        <h3>{showJobData?.title}</h3>
-        <div className={style.showJobDescription}>
-          <h5>Job description</h5>
-          <p>{ReactHtmlParser(`${showJobData?.web_description}`)}</p>
+      <div className="d-flex justify-content-between ">
+        <div className={style.rightShowJobContainer}>
+          <p> {jobReduxPage?.showJobPage?.created_at} </p>
+          <h3>{jobReduxPage?.showJobPage?.title}</h3>
+          <div className={style.showJobDescription}>
+            <h5>Job description</h5>
+            <p>{ReactHtmlParser(`${jobReduxPage?.showJobPage?.web_description}`)}</p>
+          </div>
         </div>
-      </div>
-      <div className={style.showJobIcon}>
-        {showJobData?.status === 'active' && (
-          <>
-        <i onClick={() => handleClick(url)} className="fas fa-share-square"></i>
+        <div className={style.showJobIcon}>
+          {jobReduxPage?.showJobPage?.status === 'active' && (
+            <>
+              <i onClick={() => handleClick(url)} className="fas fa-share-square"></i>
 
-        <i
-          className={`${favoriteIcon} ${style.favIconColor}`}
-          onClick={addToFavorite}
-        ></i>
-          </>
-        )}
-      </div>
-      {showShareModal && <Share url={`/Show-Job/${id}`}  setShowShareModal={setShowShareModal} />}
+              <i
+                className={`${favoriteIcon} ${style.favIconColor}`}
+                onClick={addToFavorite}
+              ></i>
+            </>
+          )}
+        </div>
+        {showShareModal && <Share url={`/Show-Job/${id}`} setShowShareModal={setShowShareModal} />}
 
-    </div>
-      {showAlert && (<Alert type='warning' message='Please login first' showAlert={showAlert} setShowAlert={setShowAlert} count={count} setCount={setCount} /> )}
-      </>
+      </div>
+      {showAlert && (<Alert type='warning' message='Please login first' showAlert={showAlert} setShowAlert={setShowAlert} count={count} setCount={setCount} />)}
+    </>
   );
 }
 

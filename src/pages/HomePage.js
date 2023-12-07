@@ -4,35 +4,38 @@ import TryApp from "../components/home/TryApp";
 import MainCategory from "../components/home/MainCategory/MainCategory";
 import useAxios from "../hooks/useAxios";
 import Blog from "../components/home/Blog";
-import AdvertisementBanner from "../components/common/AdvertisementBanner";
+// import AdvertisementBanner from "../components/common/AdvertisementBanner";
 import FindMasjidSection from "../components/common/findMasjidSection/FindMasjidSection";
 import NavBar from "../components/layout/NavBar";
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { setDateHome } from '../redux/Home';
 function HomePage({ stateName }) {
   const url = "home";
+  const dispatch = useDispatch();
   const [showHome, setShowHome] = useState(false);
   const [Data] = useAxios(url);
   const url2 = `masjid/azan`;
   // const url = `masjid/azan`;
   const [Data2] = useAxios(url2);
   const findMasjidData = Data2?.data;
-  const HomeData = Data?.data;
-  const AdvertisementsData = HomeData?.advertisements;
+  dispatch(setDateHome(Data?.data));
+  // const AdvertisementsData = HomeData?.advertisements;
   const location = useLocation();
   let pathName = location.pathname;
   useEffect(() => {
     if (
-     pathName === '/' ||
-     pathName === "/arab-georgia" || 
-     pathName === "/new-jersey" || 
-     pathName === "/new-york"  ||
-     pathName === "/arabchicago" ||
-     pathName === "/texas" || 
-     pathName === "/arab-florida" ||
-     pathName === "/arab-california" ||
-     pathName === '/arab-detroit'
-     ) {
+      pathName === '/' ||
+      pathName === "/arab-georgia" ||
+      pathName === "/new-jersey" ||
+      pathName === "/new-york" ||
+      pathName === "/arabchicago" ||
+      pathName === "/texas" ||
+      pathName === "/arab-florida" ||
+      pathName === "/arab-california" ||
+      pathName === '/arab-detroit'
+    ) {
       setShowHome(true);
     }
     else {
@@ -41,14 +44,15 @@ function HomePage({ stateName }) {
   }, [pathName])
   return (
     <div className="main">
-      <NavBar stateName={stateName}/>
+      <NavBar stateName={stateName} />
 
       {showHome && <><Hero stateName={stateName} />
-        <AboutUs HomeData={HomeData} />
+        <AboutUs/>
         {/* <AdvertisementBanner Data={AdvertisementsData} /> */}
-        <MainCategory HomeData={HomeData} />
-        <FindMasjidSection dataMasjid={findMasjidData}/>
-        <Blog HomeData={HomeData} />
+        <MainCategory urlApi='main-market' />
+        <FindMasjidSection dataMasjid={findMasjidData} />
+        <MainCategory urlApi='main-categories' />
+        <Blog/>
         <TryApp />
       </>}
     </div>

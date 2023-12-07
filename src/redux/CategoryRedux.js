@@ -1,4 +1,11 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import  aboutSlice  from './About';
+import job from './Job';
+import house from './House';
+import business from './Bussiness';
+import masjid from './Masjid';
+import market from './Market';
+import home from './Home';
 
 const initialState = {
   categoryId: localStorage.getItem('mainCategoryId') ? localStorage.getItem('mainCategoryId') : '',
@@ -38,6 +45,13 @@ export const stateCategory = (state=>state);
 const store = configureStore({
   reducer: {
     category: category.reducer,
+    about:aboutSlice,
+    job:job,
+    house:house,
+    business:business,
+    masjid:masjid,
+    market:market,
+    home:home
   },
 });
 

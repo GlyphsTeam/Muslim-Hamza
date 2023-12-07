@@ -1,5 +1,6 @@
 // import style from "../../assets/style/pagination.module.css";
 import style from "../../assets/style/common/pagination.module.css";
+import { useDispatch } from 'react-redux';
 
 const Pagination = ({
   totalPosts,
@@ -16,7 +17,7 @@ const Pagination = ({
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pages.push(i);
   }
-
+  const dispatch = useDispatch();
 
   return (
     <div className={style.pagination}>
@@ -36,8 +37,8 @@ const Pagination = ({
             key={index}
             className={`${style.paginationBtn} ${activeIndex === index ? style.activeLi : ""}`}
             onClick={() => {
-              setCurrentPage(page);
-              setActiveIndex(index);
+              dispatch(setCurrentPage(page));
+              dispatch(setActiveIndex(index));
               scrollPagination();
             }}
           >

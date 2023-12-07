@@ -3,7 +3,7 @@ import style from "../../assets/style/common/search_job_house.module.scss";
 import filterStyle from "../../assets/style/common/filteredPage.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { setMobileFilter, setKeyWord, setZipCode, houseReduxState } from '../../redux/House';
+import { setMobileFilter, setKeyWord, setZipCode, jobsReduxState } from '../../redux/Job';
 import Alert from "../alert/Alert";
 function Search_job_house() {
   const location = useLocation();
@@ -13,7 +13,7 @@ function Search_job_house() {
   const token = localStorage.getItem("muslim_comunity_token");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const housePageState = useSelector(houseReduxState);
+  const jobPageState = useSelector(jobsReduxState);
 
   const alert = () => {
     setCount(4);
@@ -35,7 +35,7 @@ function Search_job_house() {
     <>
       <div className={`col-12 ${style.mainSearchDiv}`}>
         <button
-          onClick={() => dispatch(setMobileFilter(!housePageState.mobileFilter))}
+          onClick={() => dispatch(setMobileFilter(!jobPageState.mobileFilter))}
           className={`col-lg-1 col-md-1 col-sm-1 ${filterStyle.filterShow}`}
         >
           {" "}
@@ -47,14 +47,14 @@ function Search_job_house() {
             className={`col-lg-8 col-md-8 col-sm-9 ${style.keyWordInput}`}
             onChange={(e) => dispatch(setKeyWord(e.target.value))}
             type="search"
-            value={housePageState.keyWord}
+            value={jobPageState.keyWord}
             placeholder="Search"
           />
           <input
             className={`col-lg-4 col-md-4 col-sm-3 ${style.zipcodeInput}`}
             onChange={(e) => dispatch(setZipCode(e.target.value))}
             type="search"
-            value={housePageState.zipCode}
+            value={jobPageState.zipCode}
             placeholder="Zip Code"
           />
         </form>

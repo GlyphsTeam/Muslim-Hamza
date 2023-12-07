@@ -7,12 +7,15 @@ import ShowProductImages from "../components/productShow/ShowProductImages";
 import MainProductInfo from "../components/productShow/MainProductInfo";
 import Interested from "../components/productShow/Interested";
 import Header from "../components/HeaderProduct/HeaderProduct";
+import { useDispatch } from 'react-redux';
+import { setShowProduct } from '../redux/Market';
 function ProductShowPage() {
     const location = useLocation();
-
+    const dispatch = useDispatch();
     const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
     const url = `market/web/show/${id}`;
     const [Data] = useAxios(url);
+    dispatch(setShowProduct(Data?.data));
     const showProductData = Data?.data?.item;
     const ProductData = Data?.data;
 
@@ -24,10 +27,10 @@ function ProductShowPage() {
             <div className="container pt-5">
                 <div className={`row ${style.productspace}`}>
                     <div className="col-lg-6 col-md-12 col-sm-12">
-                        <ShowProductImages data={showProductData} />
+                        <ShowProductImages />
                         <div className={style.infoDesktop}>
-                            <ShowProductDescription showProductData={showProductData} />
-                            <SubProductInformation showProductData={showProductData} />
+                            <ShowProductDescription  />
+                            <SubProductInformation />
                         </div>
                         <div className={style.infoMobile}>
                             <MainProductInfo showProductData={showProductData} />

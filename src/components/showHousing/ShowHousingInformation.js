@@ -7,22 +7,23 @@ import useFetch from "../../hooks/useFetchPost";
 import Alert from "../alert/Alert";
 import ReactHtmlParser from 'html-react-parser';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-function ShowHousingInformation({ showHousingData }) {
+import { useSelector } from 'react-redux';
+import { houseReduxState } from '../../redux/House'
+function ShowHousingInformation() {
+  const showDataHouse= useSelector(houseReduxState)
   const [send, setSend] = useState(false);
   const [count, setCount] = useState(4);
   const [showAlert, setShowAlert] = useState(false);
-  const [isFav, setIsFav] = useState(showHousingData?.saved);
+  const [isFav, setIsFav] = useState(showDataHouse.houseShowData?.saved);
   const token = localStorage.getItem("muslim_comunity_token");
-  const id = showHousingData?.id;
-  const url = `/Show-Housing/${id}`;
-
-  let formData = new FormData();
+  const id = showDataHouse.houseShowData?.id;
+     
+    let formData = new FormData();
   formData.append("id", id);
 
   useEffect(() => {
-    setIsFav(showHousingData?.saved)
-  }, [showHousingData?.saved]);
+    setIsFav(showDataHouse.houseShowData?.saved)
+  }, [showDataHouse.houseShowData?.saved]);
 
   const [Res] = useFetch("favorite/rent", formData, send);
 
@@ -54,19 +55,16 @@ function ShowHousingInformation({ showHousingData }) {
     <div className={style.showHousingInfoContainer}>
       <div className={style.showHousingFirstSection}>
         <div className={style.showHousingTitle}>
-          <h3>{showHousingData?.title}</h3>
+          <h3>{showDataHouse.houseShowData?.title}</h3>
         </div>
 
         <div className={style.showHousingIcon}>
-          {showHousingData?.status === 'active' && (
+          {showDataHouse.houseShowData?.status === 'active' && (
             <>
               <i
                 onClick={() => setShowShareModal(true)}
                 className="fas fa-share-square"
               ></i>
-
-
-
               <i
                 className={`${favoriteIcon} ${style.favIconColor}`}
                 onClick={addToFavorite}
@@ -77,17 +75,17 @@ function ShowHousingInformation({ showHousingData }) {
         </div>
 
       </div>
-      {showHousingData?.description && (
+      {showDataHouse.houseShowData?.description && (
         <div>
-          <p>{ReactHtmlParser(`${showHousingData?.web_description}`)}</p>
+          <p>{ReactHtmlParser(`${showDataHouse.houseShowData?.web_description}`)}</p>
         </div>
       )}
       <div className={style.showHousingAddress}>
         <p>
           <i className={`fas fa-map-marker-alt ${style.showHousingMarker}`}></i>{" "}
-          {showHousingData?.place}
+          {showDataHouse.houseShowData?.place}
         </p>
-        {showHousingData?.is_bathroom_shared ? (
+        {showDataHouse.houseShowData?.is_bathroom_shared ? (
           <div className={style.showHousingThirdSectionMargin}>
             <p>
               <LazyLoadImage
@@ -104,29 +102,29 @@ function ShowHousingInformation({ showHousingData }) {
       </div>
 
       <div className={style.showHousingThirdSection}>
-        {showHousingData?.bedrooms && (
+        {showDataHouse.houseShowData?.bedrooms && (
           <div className={style.showHousingThirdSectionMargin}>
             <p className={style.showHousingIconParagraph}>
               <i className={`fas fa-bed ${style.thirdSectionIcon}`}></i>{" "}
-              {showHousingData?.bedrooms}
+              {showDataHouse.houseShowData?.bedrooms}
             </p>
           </div>
         )}
-        {showHousingData?.bathrooms && (
+        {showDataHouse.houseShowData?.bathrooms && (
           <div className={style.showHousingThirdSectionMargin}>
             <p className={style.showHousingIconParagraph}>
               <i className={`fas fa-bath ${style.thirdSectionIcon}`}></i>{" "}
-              {showHousingData?.bathrooms}
+              {showDataHouse.houseShowData?.bathrooms}
             </p>
           </div>
         )}
-        {showHousingData?.area && (
+        {showDataHouse.houseShowData?.area && (
           <div className={style.showHousingThirdSectionMargin}>
             <p className={style.showHousingIconParagraph}>
               <i
                 className={`fas fa-expand-arrows-alt ${style.thirdSectionIcon}`}
               ></i>
-              {showHousingData?.area}
+              {showDataHouse.houseShowData?.area}
             </p>
           </div>
         )}
@@ -142,14 +140,14 @@ function ShowHousingInformation({ showHousingData }) {
           </p>
         </div>
       </div>
-      <ShowHousingGallery showHousingData={showHousingData} />
+      <ShowHousingGallery  />
 
       <div className={style.lastSectionDiv}>
-        <ContactInfo data={showHousingData} />
-        {showHousingData?.price && (
+        <ContactInfo data={showDataHouse.houseShowData} />
+        {showDataHouse.houseShowData?.price && (
           <p
             className={style.priceParagraph}
-          >{`$ ${showHousingData?.price}`}</p>
+          >{`$ ${showDataHouse.houseShowData?.price}`}</p>
         )}
       </div>
       {showAlert && (<Alert type='warning' message='Please login first' showAlert={showAlert} setShowAlert={setShowAlert} count={count} setCount={setCount} />)}

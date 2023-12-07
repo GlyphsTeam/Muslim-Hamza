@@ -6,12 +6,19 @@ import Button from "../../common/Button";
 import { Link } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
 import useAxios from "../../../hooks/useAxios";
-export default function MainCategory({ HomeData }) {
-  const url = "main-market"
-  console.log("HomeData>>>",HomeData)
-  const[Data] = useAxios(url);
-  const mainCategoryData = Data?.data;
-
+export default function MainCategory({ urlApi }) {
+  const url = `${urlApi}`
+  const [Data] = useAxios(url);
+  let navMain;
+  let mainCategoryData;
+  if(urlApi==="main-market"){
+   mainCategoryData = Data?.data;
+   navMain = '/Category';
+  }
+  else{
+    mainCategoryData = Data?.data?.service?.concat(Data?.data?.business)
+    navMain = '/business'
+  }
   const mainCategoryCards = mainCategoryData
     ?.slice(0, 10)
     .map((item, index) => (
@@ -119,7 +126,7 @@ export default function MainCategory({ HomeData }) {
       <div className={style.cardMainBody}>
         <Slider {...settings}>{mainCategoryCards}</Slider>
       </div>
-      <Link to={"/Category"}>
+      <Link to={`${navMain}`}>
         <Button btnInfo={"See All"} />
       </Link>
     </div>

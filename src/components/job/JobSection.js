@@ -1,47 +1,48 @@
 import Card from './JobCard';
 import Pagination from '../common/Pagination';
 import style from '../../assets/style/job/jobCard.module.scss'
-
-function HouseSection({jobData, limit, setCity, setType, type, city, previousPage, nextPage, total, setActiveIndex, activeIndex, page, setPage, scrollPagination, baseUrl}) {
-
+import { useSelector, useDispatch } from 'react-redux';
+import { jobsReduxState, setCity, setType, setPage, setActiveIndex } from '../../redux/Job'
+function HouseSection({ previousPage, nextPage, total,  scrollPagination, baseUrl }) {
+  const jobReduxState = useSelector(jobsReduxState);
+  const dispatch = useDispatch();
   const removeFilter = (e) => {
-    if(e === 'type'){
-      setType('');
-    }else if(e === 'city'){
-      setCity('');
+    if (e === 'type') {
+      dispatch(setType(''));
+    } else if (e === 'city') {
+      dispatch(setCity(''));
     }
   }
-  
   return (
     <>
-    <div className={`row `}>
-        {type && (
-          <h3 className={style.filterResult}>{type} <i className="far fa-times-circle" onClick={()=> removeFilter('type')}></i></h3>
+      <div className={`row `}>
+        {jobReduxState.type && (
+          <h3 className={style.filterResult}>{jobReduxState.type} <i className="far fa-times-circle" onClick={() => removeFilter('type')}></i></h3>
         )}
-        {city && (
-          <h3 className={style.filterResult}>{city} <i className="far fa-times-circle" onClick={()=> removeFilter('city')}></i></h3>
+        {jobReduxState.city && (
+          <h3 className={style.filterResult}>{jobReduxState.city} <i className="far fa-times-circle" onClick={() => removeFilter('city')}></i></h3>
         )}
-    </div> 
-    <div className={`row `}>
-        {jobData?.map((item, index)=>
-              <Card key={index} jobData = {item} baseUrl={baseUrl} />
+      </div>
+      <div className={`row `}>
+        {jobReduxState?.jobs?.map((item, index) =>
+          <Card key={index} jobData={item} baseUrl={baseUrl} />
         )}
-    </div>
+      </div>
 
-    {limit < total && (
-                <Pagination
-                    totalPosts={total}
-                    postsPerPage={limit}
-                    setCurrentPage={setPage}
-                    previousPage={previousPage}
-                    nextPage={nextPage}
-                    currentPage={page}
-                    setActiveIndex={setActiveIndex}
-                    activeIndex={activeIndex}
-                    scrollPagination={scrollPagination}
-                />
-            )
-            }
+      {jobReduxState.limit < total && (
+        <Pagination
+          totalPosts={total}
+          postsPerPage={jobReduxState.limit}
+          setCurrentPage={setPage}
+          previousPage={previousPage}
+          nextPage={nextPage}
+          currentPage={jobReduxState.page}
+          setActiveIndex={setActiveIndex}
+          activeIndex={jobReduxState.activeIndex}
+          scrollPagination={scrollPagination}
+        />
+      )
+      }
     </>
   )
 }

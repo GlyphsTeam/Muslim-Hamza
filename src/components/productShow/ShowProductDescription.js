@@ -1,19 +1,19 @@
-import React from 'react'
 import style from '../../assets/style/showProduct/showProduct.module.css';
 import { useTranslation } from 'react-i18next';
 import ReactHtmlParser from 'html-react-parser';
-
-function ShowProductDescription({showProductData}) {
+import { marketState } from '../../redux/Market';
+import { useSelector } from 'react-redux';
+function ShowProductDescription() {
   const [t] = useTranslation();
-
+  const showProduct = useSelector(marketState);
   return (
     <div className={`${style.showProductDescriptionContainer}  pt-5`}>
-        <h2>
-            {t("Description")}
-        </h2>
-        <p>
-        {showProductData?.web_description ? ReactHtmlParser(`${showProductData?.web_description}`):showProductData?.description}
-          </p>
+      <h2>
+        {t("Description")}
+      </h2>
+      <p>
+        {showProduct?.market?.showProductItem?.item?.web_description ? ReactHtmlParser(`${showProduct?.market?.showProductItem?.item?.web_description}`) : showProduct?.market?.showProductItem?.item?.description}
+      </p>
     </div>
   )
 }
