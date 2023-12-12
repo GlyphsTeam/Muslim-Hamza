@@ -3,9 +3,12 @@ import style from "../../assets/style/blog/newsSection.module.css";
 import { Link } from "react-router-dom";
 import ReactHtmlParser from 'html-react-parser';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useSelector } from 'react-redux'
+import { blogStateRedux } from '../../redux/Blog'
+function NewsSection() {
+  const blogState = useSelector(blogStateRedux);
 
-function NewsSection({ blogData }) {
-  const newsBlog = blogData?.visit?.model  ;
+  const newsBlog = blogState?.blogMainData?.visit?.model;
   return (
     <div className={style.newsMainDiv}>
       <div className={style.newsTitleDiv}>
@@ -15,7 +18,7 @@ function NewsSection({ blogData }) {
         <Link to={`/Show-Blog/${item?.id}`} key={index}>
           <div className={style.newsMainCards}>
             <div className={style.newsImage}>
-              <LazyLoadImage src={item?.image} alt="newImage"/>
+              <LazyLoadImage src={item?.image} alt="newImage" />
             </div>
             <div className={style.newsCardsTitle}>
               <p>{item?.title} </p>

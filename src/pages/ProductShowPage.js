@@ -15,8 +15,8 @@ function ProductShowPage() {
     const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
     const url = `market/web/show/${id}`;
     const [Data] = useAxios(url);
+    console.log("DAta>>>",Data?.data)
     dispatch(setShowProduct(Data?.data));
-    const showProductData = Data?.data?.item;
     const ProductData = Data?.data;
 
 
@@ -33,18 +33,18 @@ function ProductShowPage() {
                             <SubProductInformation />
                         </div>
                         <div className={style.infoMobile}>
-                            <MainProductInfo showProductData={showProductData} />
+                            <MainProductInfo />
                         </div>
 
                     </div>
                     <div className={`${style.verticalLineStyle} col-lg-1`} />
                     <div className="col-lg-5 col-md-12 col-sm-12 ">
                         <div className={style.infoDesktop}>
-                            <MainProductInfo showProductData={showProductData} />
+                            <MainProductInfo/>
                         </div>
                         <div className={style.infoMobile}>
-                            <ShowProductDescription showProductData={showProductData} />
-                            <SubProductInformation showProductData={showProductData} />
+                            <ShowProductDescription  />
+                            <SubProductInformation  />
                         </div>
                         <Interested />
 

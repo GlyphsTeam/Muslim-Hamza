@@ -7,7 +7,6 @@ function SavedJobPage({baseUrl}) {
   const url = `user/rents`;
   const [Data] = useAxios(url);
   const myData = Data?.data;
-
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 
@@ -16,7 +15,7 @@ function SavedJobPage({baseUrl}) {
       </div>
 
       <div className='col-lg-9 col-md-8 col-sm-12'>
-        <UserPostsSection savedData = {myData} type='house' baseUrl={baseUrl} />
+        <UserPostsSection savedData = {myData?.rents} type='house' baseUrl={baseUrl} />
       </div>
 
     </div>

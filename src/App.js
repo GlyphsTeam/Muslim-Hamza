@@ -45,6 +45,8 @@ import CardBussiness from './components/CardShop/CardBussines';
 import Business from './pages/Business'
 import BusinessPage from "./pages/BusinessPage";
 import ShowProduct from './pages/ProductShowPage'
+import PostProductForm from "./pages/PostProductForm";
+import SavedMarket from './pages/SaveMarketPlace'
 function App() {
   const [location, setLocation] = useState(null);
   const [city, setCity] = useState(null);
@@ -55,38 +57,51 @@ function App() {
     isMobile: /Mobi/.test(window.navigator.userAgent),
   });
   useEffect(() => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          setLocation({ latitude, longitude });
+    const askLocation = async () => {
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
 
-          const apiKey = 'AIzaSyAFcYTtrbdIGq-5xgB6TzyWtu0Wt7B9lJU'; // Replace with your actual API key
-          const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+        const { latitude, longitude } = position.coords;
+        setLocation({ latitude, longitude });
 
-          try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
+        const apiKey = 'AIzaSyAFcYTtrbdIGq-5xgB6TzyWtu0Wt7B9lJU';
+        const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}&language=en`;
 
-            const cityName = data.results[0].address_components.find(
-              (component) => component.types.includes('locality')
-            ).long_name;
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
 
-            setCity(cityName);
-          } catch (error) {
-            console.error('Error fetching city information:', error);
-          }
-        },
-        (error) => {
-          console.error('Error getting location:', error);
+          // Check the language of the address components
+          const lang = data.results[0].address_components[0]?.short_name;
+          const cityComponent = lang === 'ar' ? 'locality' : 'administrative_area_level_1';
+
+          const cityName = data.results[0].address_components.find(
+            (component) => component.types.includes(cityComponent)
+          ).long_name;
+
+          setCity(cityName);
+        } catch (error) {
+          console.error('error getting city>>>', error);
         }
-      );
-    } else {
-      console.error('Geolocation is not supported by your browser');
-    }
-  }, []); 
+      } catch (error) {
+        console.error('error getting location>>>', error);
 
- console.log("location>>>",location, "deviceInfo>>",deviceInfo, "city>>",city)
+        if (error.code === 1) {
+          if (window.confirm('This application requires your location. Do you want to enable geolocation?')) {
+            askLocation();
+          }
+        }
+      }
+    };
+
+    askLocation();
+  }, []);
+
+
+
+  console.log("location>>>", location, "deviceInfo>>", deviceInfo, "city>>", city)
   const stateMus = useSelector(stateCategory);
   // const dispatch = useDispatch();
 
@@ -119,7 +134,7 @@ function App() {
           <>
             <SpinnerStatic />
           </>
-        ) :<></>}
+        ) : <></>}
         <ScrollToTop />
         <NavBar />
 
@@ -128,6 +143,7 @@ function App() {
             <Route path="/Profile" element={<UserProfilePage baseUrl={baseUrl} />} />
             <Route path="/saved-job" element={<SavedJobPage baseUrl={baseUrl} />} />
             <Route path="/saved-store" element={<SavedStorePage baseUrl={baseUrl} />} />
+            <Route path="/saved-marketPlace" element={<SavedMarket/>} baseUrl={baseUrl}/>
             <Route path="/saved-accomodation" element={<SavedAccomodationPage baseUrl={baseUrl} />} />
             <Route path="/my-job" element={<MyJobPage baseUrl={baseUrl} />} />
             <Route path="/my-housing" element={<MyHousingPage baseUrl={baseUrl} />} />
@@ -141,6 +157,7 @@ function App() {
             path="/Register"
             element={<RegisterPage baseUrl={baseUrl} />}
           />
+          <Route path="/post-product" element={<PostProductForm />} />
           <Route path="/About" element={<AboutUsPage baseUrl={baseUrl} />} />
           <Route
             path="/Contact"
@@ -151,8 +168,8 @@ function App() {
           <Route path="/Masjid" element={<MasjidPage baseUrl={baseUrl} />} />
           <Route path="/Housing" element={<HousingPage baseUrl={baseUrl} />} />
           <Route path="/Blog" element={<BlogPage baseUrl={baseUrl} />} />
-          <Route path="/business" element={<Business/>}/>
-          <Route 
+          <Route path="/business" element={<Business />} />
+          <Route
             path="/Category"
             element={<CategoryPage baseUrl={baseUrl} />}
           />
@@ -161,8 +178,8 @@ function App() {
             element={<ShopPage baseUrl={baseUrl} />}
           />
           <Route
-            path="/businessPage/:id" 
-            element={<BusinessPage/>}
+            path="/businessPage/:id"
+            element={<BusinessPage />}
           />
           <Route
             path="/Show-Blog/:id"
@@ -188,14 +205,14 @@ function App() {
             path="/Shop-Profile/:id/:id2"
             element={<ShopProfilePage baseUrl={baseUrl} />}
           />
-          <Route path="/stores/:id/:id2" element={<Cardshop/>}/>
-          <Route path="/show-bussines/:id/:id2"  element={<CardBussiness/>}/>
+          <Route path="/stores/:id/:id2" element={<Cardshop />} />
+          <Route path="/show-bussines/:id/:id2" element={<CardBussiness />} />
           <Route exact path="/Privacy-Policy" element={<PrivacyPolicy />} />
           <Route exact path="/Terms-conditions" element={<Terms_conditions />} />
           <Route exact path='/eula' element={<EulaPage />} />
           <Route exact path="*" element={<Page404 />} />
           <Route exact path="/search-result/:keyword/:type?" element={<SearchResultPage />} />
-          <Route path="/Show-product/:slug/:id" element={<ShowProduct/>}/>
+          <Route path="/Show-product/:slug/:id" element={<ShowProduct />} />
         </Routes>
 
         <Footer />

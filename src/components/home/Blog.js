@@ -7,7 +7,6 @@ import { homeState } from '../../redux/Home';
 function Blog() {
   const homeReduxS = useSelector(homeState);
   const blogData = homeReduxS.homeData?.blogs_new?.model;
-
   const { t, i18n } = useTranslation();
   return (
     <>
@@ -57,10 +56,10 @@ function Blog() {
         <div>
           <div className={style.blogMainContainer}>
             <div className={style.mainBlogCards}>
-              <LazyLoadImage src={blogData?.main?.image} alt="mainImage" />
+              <LazyLoadImage src={homeReduxS.homeData?.blogs?.row?.image} alt="mainImage" />
               <div className={style.firstMainBlog}>
-                <p>{blogData?.main?.title}</p>
-                <Link to={`/Show-Blog/${blogData?.main?.id}`}>
+                <p>{homeReduxS.homeData?.blogs?.row?.title}</p>
+                <Link to={`/Show-Blog/${homeReduxS.homeData?.blogs?.row?.id}`}>
                   <div className={style.readMoreDiv}>
                     <p>Read More</p>
                   </div>
@@ -68,7 +67,7 @@ function Blog() {
               </div>
             </div>
             <div className={style.subMainBlogCards}>
-              {blogData?.random?.slice(0, 3).map((item, index) => (
+              {blogData?.slice(0, 3).map((item, index) => (
                 <div className={style.subBlogCards} key={index}>
                   <LazyLoadImage src={item?.image} alt="blogImage" />
 

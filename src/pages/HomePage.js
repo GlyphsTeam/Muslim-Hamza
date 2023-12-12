@@ -49,9 +49,9 @@ function HomePage({ stateName }) {
       {showHome && <><Hero stateName={stateName} />
         <AboutUs/>
         {/* <AdvertisementBanner Data={AdvertisementsData} /> */}
-        <MainCategory urlApi='main-market' />
+        <MainCategory urlApi='main-market' navUrl="/Shop"/>
         <FindMasjidSection dataMasjid={findMasjidData} />
-        <MainCategory urlApi='main-categories' />
+        <MainCategory urlApi='main-categories' navUrl="/businessPage"/>
         <Blog/>
         <TryApp />
       </>}

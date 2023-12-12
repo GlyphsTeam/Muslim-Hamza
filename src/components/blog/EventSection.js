@@ -2,15 +2,17 @@ import style from "../../assets/style/blog/blogCards.module.css";
 import { useEffect } from "react";
 import BlogCard from "../common/BlogCard";
 import Slider from "react-slick";
+import { useSelector } from 'react-redux';
+import { blogStateRedux } from '../../redux/Blog';
+function EventCard() {
+  const stateBlog = useSelector(blogStateRedux);
+  const eventBlog = stateBlog?.blogMainData?.events?.model
 
-function EventCard({ blogData }) {
-   const eventBlog = blogData?.events?.model
-    
   function SampleNextArrow(props) {
     const { onClick } = props;
     return (
       <div className={style.customNextArrow} onClick={onClick}>
-        
+
         <i className="fas fa-chevron-right"></i>
       </div>
     );
@@ -18,21 +20,21 @@ function EventCard({ blogData }) {
 
   function SamplePrevArrow(props) {
     const { onClick } = props;
-    
+
     return (
-        
+
       <div className={style.customPrevArrow} onClick={onClick}>
         <i className="fas fa-chevron-left"></i>
       </div>
     );
   }
 
-  let slidesToShowNum = Math.round( eventBlog?.length/ 2);
+  let slidesToShowNum = Math.round(eventBlog?.length / 2);
   if (slidesToShowNum > 4) {
     slidesToShowNum = 4;
   }
 
- let mainCategorySlide = slidesToShowNum + 1;
+  let mainCategorySlide = slidesToShowNum + 1;
 
   useEffect(() => {
     mainCategorySlide = slidesToShowNum;
@@ -44,7 +46,7 @@ function EventCard({ blogData }) {
     prevArrow: <SamplePrevArrow />,
     // rows: 2,
     // slidesPerRow: 1,
-    slidesToShow: slidesToShowNum  ?  mainCategorySlide : 1  ,
+    slidesToShow: slidesToShowNum ? mainCategorySlide : 1,
 
     slidesToScroll: 1,
     responsive: [
@@ -62,7 +64,7 @@ function EventCard({ blogData }) {
         settings: {
           infinite: true,
           slidesToShow: 2
-       
+
         },
       },
       {
@@ -103,21 +105,21 @@ function EventCard({ blogData }) {
     <div className={style.eventMainDiv}>
       <h3>Events</h3>
       <div className={style.subBlogCards}>
-      <Slider {...settings}>
-        {eventBlog?.map((item, index) => (
-           
-          <BlogCard
-          title={item?.title}
-          image={item?.image}
-          description={item?.description}
-          index={index}
-          created_at = {item?.created_at}
-          key={index}
-          id = {item?.id}
-          />
-       
-        ))}
-           </Slider>
+        <Slider {...settings}>
+          {eventBlog?.map((item, index) => (
+
+            <BlogCard
+              title={item?.title}
+              image={item?.image}
+              description={item?.description}
+              index={index}
+              created_at={item?.created_at}
+              key={index}
+              id={item?.id}
+            />
+
+          ))}
+        </Slider>
       </div>
     </div>
 

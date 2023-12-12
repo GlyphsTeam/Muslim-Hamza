@@ -7,7 +7,7 @@ import { setSubCategoryTitle } from "../../../redux/CategoryRedux";
 import { useNavigate } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function CategoryCard({name, id, image}) {
+function CategoryCard({name, id, image, navUrl}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +21,10 @@ function CategoryCard({name, id, image}) {
     localStorage.removeItem("subCategoryId");
     localStorage.setItem("mainCategoryTitle", name);
     localStorage.removeItem("subCategortTitle");
-    navigate("/Shop");
+    if(navUrl==="/businessPage"){
+      navUrl = `/businessPage/${id}`
+    }
+    navigate(`${navUrl}`);
   };
 
   return (

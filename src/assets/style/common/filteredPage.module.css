@@ -5,8 +5,15 @@
     display:flex;
     flex-wrap: nowrap !important;
 }
+.postCategory{
+    padding: 13px;
+    position: relative;
+    top: 40px;
+    left: 86%;
+}
 .categoryContanier{
  display: flex;
+ width: 100%;
  flex-wrap: wrap;
 }
 .categoryContanier .readMoreDiv{
@@ -81,4 +88,14 @@ display: flex !important;
  .categoryTitleFilter{
     font-size: 16px;
  }   
+}
+@media (max-width:1000px){
+    .postCategory{
+        left: 50% !important;
+    }
+}
+@media (max-width:480px){
+    .postCategory{
+        left: 32% !important;
+    }
 }

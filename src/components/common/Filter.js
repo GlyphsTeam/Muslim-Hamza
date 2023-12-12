@@ -1,6 +1,5 @@
 import Accordion from './Accordion';
 import style from '../../assets/style/common/filteredPage.module.css'
-import useAxios from '../../hooks/useAxios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryId } from '../../redux/CategoryRedux';
 import { setSubCategoryId } from '../../redux/CategoryRedux';
@@ -11,7 +10,6 @@ import { marketState, setCategoryState , setActiveFilter, setCity, setGender ,se
 function Filter({filterType, filterTitle }) {
   const dispatch = useDispatch();
   const marketStateList = useSelector(marketState);
-  console.log("marketStateList>>", marketStateList)
 
 
   const navigate = useNavigate()

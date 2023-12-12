@@ -3,41 +3,45 @@ import filterStyle from '../assets/style/common/filteredPage.module.css'
 import Filter from '../components/common/Filter';
 import useAxios from '../hooks/useAxios';
 import ShopSection from '../components/category/ShopSection';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { marketState, setPage, setActiveIndex, setMarketList } from '../redux/Market'
 
 function CategoryPage() {
     const categoryRedux = useSelector(state => state.category);
-    
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(12);
+    const marketCatege = useSelector(marketState)
+    const dispatch = useDispatch();
+  // const [page, setPage] = useState(1);
+  // const [limit, setLimit] = useState(12);
 
   const [mobileFilter, setMobileFilter] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  // const [activeIndex, setActiveIndex] = useState(0);
 
   const [categoryState, setCategoryState] = useState({mainId: categoryRedux.categoryId, subId: categoryRedux.subCategoryId, activeFilterTitle: categoryRedux.categoryTitle, activeSubFilterTitle : categoryRedux.subCategoryTitle  })
 
   const nextPage = ()=> {
-    if((total/limit) > activeIndex+1){
-        setPage(page+1);
-        setActiveIndex(activeIndex+1);
+    if((total/marketCatege.market?.limit) > marketCatege.market?.activeIndex+1){
+      dispatch(setPage(marketCatege.market?.page+1));
+      dispatch(setActiveIndex(marketCatege.market?.activeIndex+1));
     }
 }
 const previousPage = ()=> {
-    if(page > 1){
-        setPage(page-1);
-        setActiveIndex(activeIndex-1);
+    if(marketCatege.market?.page > 1){
+      dispatch(setPage(marketCatege.market?.page-1));
+      dispatch(setActiveIndex(marketCatege.market?.activeIndex-1));
     }
 }
 
-let customApi = `category-market?limit_by=${limit}&page=${page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
+let customApi = `category-market?limit_by=${marketCatege.market?.limit}&page=${marketCatege.market?.page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
       
 useEffect(() => {
-  customApi = `category-market?limit_by=${limit}&page=${page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
-}, [page]); 
-  let url = `main-market/categories?limit_by=${limit}&page=${page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
+  customApi = `category-market?limit_by=${marketCatege.market?.limit}&page=${marketCatege.market?.page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
+}, [marketCatege.market?.page]); 
+  let url = `main-market/categories?limit_by=${marketCatege.market?.limit}&page=${marketCatege.market?.page}&main_id=${categoryState.mainId}&sub_id=${categoryState.subId}`;
   const [Data] = useAxios(customApi);
   const categoryData = Data?.data;
   const [Data2] = useAxios(url);
+  dispatch(setMarketList(Data2?.data))
+
   const total = Data?.total;
   const scrollPagination = () => {
   };
@@ -58,11 +62,11 @@ useEffect(() => {
 
         <div className={`col-sm-12 mt-3 ${filterStyle.filterShow}`}>
           {mobileFilter && (
-            <Filter categoryData={categoryData} filterType='category' filterTitle = 'Category' categoryState = {categoryState} setCategoryState = {setCategoryState} />
+            <Filter categoryData={Data2?.data} filterType='category' filterTitle = 'Category' categoryState = {categoryState} setCategoryState = {setCategoryState} />
           )}
         </div>
 
-         <ShopSection limit = {limit} mainidC={categoryState.mainId} categoryData={categoryData} total={total} nextPage={nextPage} previousPage={previousPage} setActiveIndex = {setActiveIndex} activeIndex={activeIndex} page={page} setPage = {setPage} scrollPagination={scrollPagination} categoryState = {categoryState} setCategoryState = {setCategoryState} />
+         <ShopSection limit = {marketCatege.market?.limit} mainidC={categoryState.mainId} categoryData={categoryData} total={total} nextPage={nextPage} previousPage={previousPage} setActiveIndex = {setActiveIndex} activeIndex={marketCatege.market?.activeIndex} page={marketCatege.market?.page} setPage = {setPage} scrollPagination={scrollPagination} categoryState = {categoryState} setCategoryState = {setCategoryState} />
  
       </div>
 

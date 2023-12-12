@@ -16,7 +16,7 @@ function MyJobPage({baseUrl}) {
       </div>
 
       <div className='col-lg-9 col-md-8 col-sm-12'>
-        <UserPostsSection savedData = {myData} type='job' baseUrl={baseUrl} />
+        <UserPostsSection savedData = {myData?.jobs} type='job' baseUrl={baseUrl} />
       </div>
 
     </div>

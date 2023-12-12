@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/CategoryRedux';
 
 function useAxios(url) {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
 
   const token = localStorage.getItem("muslim_comunity_token");
 

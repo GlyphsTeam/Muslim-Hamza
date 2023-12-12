@@ -6,7 +6,7 @@ import Button from "../../common/Button";
 import { Link } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
 import useAxios from "../../../hooks/useAxios";
-export default function MainCategory({ urlApi }) {
+export default function MainCategory({ urlApi,navUrl }) {
   const url = `${urlApi}`
   const [Data] = useAxios(url);
   let navMain;
@@ -27,6 +27,7 @@ export default function MainCategory({ urlApi }) {
         description={item?.description}
         image={item?.image}
         key={index}
+        navUrl={navUrl}
         id={item?.id}
       />
     ));

@@ -18,7 +18,8 @@ function useFetch(url, formData, send) {
             body: formData
           })
           .then(response => response.json())
-          .then((data) => {setRes(data)
+          .then((data) => {
+            setRes(data)
           }
           )
       } 

@@ -8,25 +8,26 @@ import useFetch from "../../hooks/useFetchPost";
 import Alert from "../alert/Alert";
 import ReactHtmlParser from 'html-react-parser';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-function ProfileInformation({ showStoreData }) {
+import { useSelector } from 'react-redux'
+import { businessReduxState } from '../../redux/Bussiness'
+function ProfileInformation() {
   const [send, setSend] = useState(false);
   const [count, setCount] = useState(4);
   const [showAlert, setShowAlert] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
-
-  const [isFav, setIsFav] = useState(showStoreData?.saved);
+  const statesProf = useSelector(businessReduxState);
+  const [isFav, setIsFav] = useState(statesProf.bussinessShowProfile?.saved);
   const token = localStorage.getItem("muslim_comunity_token");
 
-  const id = showStoreData?.id;
+  const id = statesProf.bussinessShowProfile?.id;
   const url = `/Shop-Profile/${id}`;
 
   let formData = new FormData();
   formData.append("id", id);
 
   useEffect(() => {
-    setIsFav(showStoreData?.saved);
-  }, [showStoreData?.saved]);
+    setIsFav(statesProf.bussinessShowProfile?.saved);
+  }, [statesProf.bussinessShowProfile?.saved]);
 
   const [Res] = useFetch("favorite/store", formData, send);
 
@@ -48,7 +49,7 @@ function ProfileInformation({ showStoreData }) {
       setCount(4);
     }
   };
-    const handleClickMap = (lat, lng) => {
+  const handleClickMap = (lat, lng) => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     window.open(url, "_blank");
   };
@@ -60,13 +61,13 @@ function ProfileInformation({ showStoreData }) {
         <div className={`row  ${style.infoSubDiv}`}>
           <div className={`col-sm-12 col-md-8 col-lg-4`}>
             <div className={style.shopInfoImage}>
-              <LazyLoadImage src={showStoreData?.image} alt="shopInfoImage"/>
+              <LazyLoadImage src={statesProf.bussinessShowProfile?.image} alt="shopInfoImage" />
             </div>
           </div>
           <div className={`col-sm-12 col-md-8 col-lg-8 `}>
             {/* <div className={style.leftInfo}> */}
             <div className={style.leftInfoFirstSection}>
-              <h3> {showStoreData?.name}</h3>
+              <h3> {statesProf.bussinessShowProfile?.name}</h3>
               <div className={style.favoriteIconDiv}>
                 <i
                   onClick={() => handleClick(url)}
@@ -77,17 +78,17 @@ function ProfileInformation({ showStoreData }) {
               </div>
             </div>
             <div className={style.profileInfoParagraph}>
-              <p>{showStoreData?.description}</p>
+              <p>{statesProf.bussinessShowProfile?.description}</p>
             </div>
-              {showStoreData?.locations_address && (
-            <p className={`px-2 ${style.webAddress}`} onClick={() => handleClickMap(showStoreData?.locations_lat, showStoreData?.locations_lng)}  >
-              <i className={`fas fa-map-marker-alt`}></i>
-              {showStoreData?.locations_address}
-            </p>
-              )}
+            {statesProf.bussinessShowProfile?.locations_address && (
+              <p className={`px-2 ${style.webAddress}`} onClick={() => handleClickMap(statesProf.bussinessShowProfile?.locations_lat, statesProf.bussinessShowProfile?.locations_lng)}  >
+                <i className={`fas fa-map-marker-alt`}></i>
+                {statesProf.bussinessShowProfile?.locations_address}
+              </p>
+            )}
             <div className={style.socialMediaDiv}>
-              <ContactInfo data={showStoreData} />
-              <SocialMedia showStoreData={showStoreData} />
+              <ContactInfo data={statesProf.bussinessShowProfile} />
+              <SocialMedia showStoreData={statesProf.bussinessShowProfile} />
             </div>
             {/* </div> */}
           </div>
@@ -98,16 +99,16 @@ function ProfileInformation({ showStoreData }) {
         <div className={`${style.leftInfoMobile}`}>
           <div className={` ${style.infoSubDiv}`}>
             <div className={style.shopInfoImage}>
-              <LazyLoadImage src={showStoreData?.image} alt="shopInfoImage"/>
+              <LazyLoadImage src={statesProf.bussinessShowProfile?.image} alt="shopInfoImage" />
             </div>
             {/* <div className={style.leftInfo}> */}
             <div className={style.leftInfoFirstSection}>
               <div>
                 {" "}
-                <h3> {showStoreData?.name}</h3>
-                <SocialMedia showStoreData={showStoreData} />
+                <h3> {statesProf.bussinessShowProfile?.name}</h3>
+                <SocialMedia showStoreData={statesProf.bussinessShowProfile} />
               </div>
-              
+
 
               <div className={style.favoriteIconDiv}>
                 <i
@@ -120,22 +121,22 @@ function ProfileInformation({ showStoreData }) {
             </div>
           </div>
         </div>
-        {showStoreData?.locations_address && (
-            <p className={`px-3 ${style.webAddressMobile}`} onClick={() => handleClickMap(showStoreData?.locations_lat, showStoreData?.locations_lng)}  >
-              <i className={`fas fa-map-marker-alt`}></i>
-              {showStoreData?.locations_address}
-            </p>
-              )}
+        {statesProf.bussinessShowProfile?.locations_address && (
+          <p className={`px-3 ${style.webAddressMobile}`} onClick={() => handleClickMap(statesProf.bussinessShowProfile?.locations_lat, statesProf.bussinessShowProfile?.locations_lng)}  >
+            <i className={`fas fa-map-marker-alt`}></i>
+            {statesProf.bussinessShowProfile?.locations_address}
+          </p>
+        )}
         <div className={style.contactDiv}>
           {" "}
-          <ContactInfo data={showStoreData} />
+          <ContactInfo data={statesProf.bussinessShowProfile} />
         </div>
-        
 
-        <WorkHoursMobile showStoreData={showStoreData} />
+
+        <WorkHoursMobile showStoreData={statesProf.bussinessShowProfile} />
         <div className={style.profileInfoParagraphMobile}>
           <h4>Description</h4>
-          <p>{ReactHtmlParser(`${showStoreData?.web_description}`)}</p>
+          <p>{ReactHtmlParser(`${statesProf.bussinessShowProfile?.web_description}`)}</p>
         </div>
       </div>
       {showAlert && (

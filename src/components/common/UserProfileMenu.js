@@ -46,6 +46,7 @@ function UserProfileMenu({activeList}) {
             <li><Link to='/saved-store'>Stores</Link></li>
             <li><Link to='/saved-accomodation'>Accomodations</Link></li>
             <li><Link to='/saved-job'>Jobs</Link></li>
+            <li><Link to='/saved-job'>Market place</Link></li>
            </ul>
         </Accordion.Body>
       </Accordion.Item>
@@ -95,6 +96,8 @@ function UserProfileMenu({activeList}) {
            <li><Link to='/saved-store'>Stores</Link></li>
             <li><Link to='/saved-accomodation'>Accomodations</Link></li>
             <li><Link to='/saved-job'>Jobs</Link></li>
+            <li><Link to='/saved-marketPlace'>Market place</Link></li>
+
            </ul>
         </Accordion.Body>
       </Accordion.Item>

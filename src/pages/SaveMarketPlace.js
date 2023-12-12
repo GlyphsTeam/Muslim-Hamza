@@ -4,10 +4,10 @@ import useAxios from "../hooks/useAxios";
 import style from '../assets/style/userProfile/userProfile.module.scss'
 import { useDispatch } from 'react-redux';
 import { setBussinessSaved } from '../redux/Bussiness'
-function SavedJobPage() {
+function SavedStorePage() {
   const url = `profile/save`;
   const [Data] = useAxios(url);
-  const savedData = Data?.data?.rents;
+  const savedData = Data?.data?.market;
   const dispatch = useDispatch();
   dispatch(setBussinessSaved(savedData));
   return (
@@ -18,11 +18,11 @@ function SavedJobPage() {
       </div>
 
       <div className='col-lg-9 col-md-8 col-sm-12'>
-        <SavedSection  type='house' />
+        <SavedSection  type='market' />
       </div>
 
     </div>
   )
 }
 
-export default SavedJobPage
+export default SavedStorePage

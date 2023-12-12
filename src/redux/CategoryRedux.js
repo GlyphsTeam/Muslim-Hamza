@@ -6,7 +6,7 @@ import business from './Bussiness';
 import masjid from './Masjid';
 import market from './Market';
 import home from './Home';
-
+import blog from './Blog'
 const initialState = {
   categoryId: localStorage.getItem('mainCategoryId') ? localStorage.getItem('mainCategoryId') : '',
   subCategoryId: localStorage.getItem('subCategoryId') ? localStorage.getItem('subCategoryId') : '',
@@ -51,7 +51,8 @@ const store = configureStore({
     business:business,
     masjid:masjid,
     market:market,
-    home:home
+    home:home,
+    blog:blog
   },
 });
 

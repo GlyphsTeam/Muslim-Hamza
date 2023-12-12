@@ -11,8 +11,9 @@ import {
   setMobileFilter,
   marketState,
 } from '../redux/Market';
+import { Link } from 'react-router-dom';
 
-function CategoryPage({ stateName }) {
+function CategoryPage() {
   const dispatch = useDispatch();
   const marketCatege = useSelector(marketState)
   const nextPage = () => {
@@ -45,10 +46,10 @@ function CategoryPage({ stateName }) {
 
   return (
     <>
-      {/* <NavBar/> */}
-      <h1>{stateName}</h1>
+    <Link to="/post-product">
+     <button className={filterStyle.postCategory}>Post your product</button>
+     </Link>
       <div className={`row ${filterStyle.pageContainer}`}>
-
         <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>
           <Filter  filterType='category' filterTitle='Category'  />
         </div>

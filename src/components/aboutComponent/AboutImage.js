@@ -2,7 +2,7 @@ import style from "../../assets/style/about/about.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from 'react-redux'
 import { aboutReduxState } from '../../redux/About'
-function AboutImage({ aboutData }) {
+function AboutImage() {
   const aboutState = useSelector(aboutReduxState);
 
   return (

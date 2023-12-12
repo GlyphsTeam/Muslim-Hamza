@@ -47,7 +47,7 @@
     /* height: 419px; */
     min-height: 200px;
     max-height: 400px;
-    width: 300px;
+    width: 400px !important;
     background-color: var(--box-color);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

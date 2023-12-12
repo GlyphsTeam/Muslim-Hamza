@@ -2,12 +2,14 @@ import Menu from '../components/common/UserProfileMenu';
 import SavedSection from '../components/userProfile/SavedSection';
 import useAxios from "../hooks/useAxios";
 import style from '../assets/style/userProfile/userProfile.module.scss'
-
+import { useDispatch } from 'react-redux';
+import { setBussinessSaved } from '../redux/Bussiness'
 function SavedStorePage() {
   const url = `profile/save`;
   const [Data] = useAxios(url);
   const savedData = Data?.data?.stores;
-
+  const dispatch = useDispatch();
+  dispatch(setBussinessSaved(savedData));
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 
@@ -16,7 +18,7 @@ function SavedStorePage() {
       </div>
 
       <div className='col-lg-9 col-md-8 col-sm-12'>
-        <SavedSection savedData = {savedData} type='store' />
+        <SavedSection  type='store' />
       </div>
 
     </div>
