@@ -144,8 +144,6 @@ function UserProfile({userData}) {
                   <span className={`${style.cancelMenu}`} onClick={()=> cancelClick()}>Cancel</span>
                 </div>
               )}
-
-                    
               </form>
             </div>
         </div>

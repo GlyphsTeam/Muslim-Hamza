@@ -9,6 +9,8 @@ function SavedProduct({ data, isMyPost, baseUrl, type }) {
   const token = localStorage.getItem("muslim_comunity_token");
   const [isFav, setIsFav] = useState(data?.save_job);
   const [send, setSend] = useState(false);
+  const [showAlertDelete, setShowAlertDelete] = useState(false);
+  const [count, setCount] = useState(4);
 
   let formData = new FormData();
   formData.append('id', data?.id);
@@ -45,6 +47,24 @@ function SavedProduct({ data, isMyPost, baseUrl, type }) {
     const element = document.getElementById(`${id}`);
     element.parentNode.removeChild(element);
   }
+  const deleteProduct = (id) => {
+    try {
+      fetch(`https://${process.env.REACT_APP_domain}/en/${process.env.REACT_APP_CityID}/user/market/delete/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
+        method: "DELETE",
+      }).then(() => {
+        deleteDiv(id);
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setShowAlertDelete(true);
+      setCount(4);
+    }
+  };
   return (
     <>
       <div id={data.id} className='flexClass' style={{display:'flex'}}>
@@ -67,6 +87,7 @@ function SavedProduct({ data, isMyPost, baseUrl, type }) {
             <div className={`${i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
               <p className={style.productPrice}><span>{data.price}</span>{type === 'blog' ? '' : '$'}</p>
               <p className={style.productDate}>{data.created_at}</p>
+              <i className='fas fa-trash-alt' onClick={()=>deleteProduct(data.id)}></i>
             </div>
           </div>
 
@@ -74,9 +95,9 @@ function SavedProduct({ data, isMyPost, baseUrl, type }) {
           <div className={`row ${i18n.language === 'en' ? style.deleteProductEn : style.deleteProductAr}`}>
             <div className={style.approvalDiv}>
               {data.status ? (
-                <p className={style.waitingApproval}>{t('Waiting for approval')}</p>
+                <p className={style.waitingApproval}>{t('Published')}</p>
               ) : (
-                <p className={style.published}  >{type === 'blog' ? '' : t('Published')}</p>
+                <p className={style.published}  >{type === 'blog' ? '' : t('Waiting for approval')}</p>
               )}
               <p>
                 {" "}

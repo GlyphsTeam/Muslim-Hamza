@@ -46,7 +46,8 @@ import Business from './pages/Business'
 import BusinessPage from "./pages/BusinessPage";
 import ShowProduct from './pages/ProductShowPage'
 import PostProductForm from "./pages/PostProductForm";
-import SavedMarket from './pages/SaveMarketPlace'
+import SavedMarket from './pages/SaveMarketPlace';
+import MyMarketPlace from './pages/MyMarketPage';
 function App() {
   const [location, setLocation] = useState(null);
   const [city, setCity] = useState(null);
@@ -112,15 +113,7 @@ function App() {
   }, []);
 
   const { t, i18n } = useTranslation();
-  // useEffect(() => {
 
-  //   dispatch(setLoading(true));
-  //   setTimeout(() => {
-  //     dispatch(setLoading(false));
-  //     window.scrollTo(0, 0);
-  //   }, 1000);
-
-  // }, []);
   const autherized = localStorage.getItem("muslim_comunity_token");
 
   const baseUrl = autherized
@@ -149,6 +142,7 @@ function App() {
             <Route path="/my-housing" element={<MyHousingPage baseUrl={baseUrl} />} />
             <Route path="/change-password" element={<ChangePasswordPage baseUrl={baseUrl} />} />
             <Route path="/delete-account" element={<DeleteAccountPage baseUrl={baseUrl} />} />
+            <Route path="/my-market" element={<MyMarketPlace baseUrl={baseUrl}/>}/>
           </Route>
 
           <Route path="/" element={<HomePage baseUrl={baseUrl} />} />

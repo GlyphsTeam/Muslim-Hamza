@@ -1,6 +1,7 @@
 import JobCard from '../job/JobCard';
 import HousingCard from '../housing/HouseCard';
-import style from '../../assets/style/userProfile/userProfile.module.scss'
+import style from '../../assets/style/userProfile/userProfile.module.scss';
+import MarketPlace from '../MarketPlaceCard';
 
 function UserPostsSection({savedData, type, baseUrl}) {
   return (
@@ -18,6 +19,14 @@ function UserPostsSection({savedData, type, baseUrl}) {
              <JobCard key={index} jobData = {item} isMyPost = {true} baseUrl={baseUrl} />
        )}
    </div>
+    )}
+    {type === 'market' &&(
+      <div className={`row mb-3 ${style.savedJobRow}`}>
+        {
+          savedData?.map((item, index)=><MarketPlace key={index} data={item} isMyPost={true} baseUrl={baseUrl}/>)
+        }
+
+      </div>
     )}
     </>
   )

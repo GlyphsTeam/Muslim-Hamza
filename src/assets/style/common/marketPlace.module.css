@@ -89,16 +89,23 @@
     margin: 0px 0 0 15% !important;
     bottom: 77px;
     position: relative;
+    top: 50px;
     transform: translateX(-50%);
-    left: 50%;
-  }
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.waitingApproval {
+  width: 100%;
+
+}
   .deleteProductAr{
     width: fit-content;
     margin: 0px 0 0 50% !important;
     bottom: 77px;
     position: relative;
     transform: translateX(-50%);
-    right: 50%;
   }
   .approvalDiv {
     display: flex;
@@ -113,7 +120,10 @@
   }
   
   .waitingApproval {
-    color: #c81c50;
+    color: var(--primary-color);
+    height: fit-content;
+    width: 200px;
+    font-weight: bold;
   }
   
   .published {

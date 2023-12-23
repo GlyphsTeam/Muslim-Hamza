@@ -57,6 +57,7 @@ function UserProfileMenu({activeList}) {
            <ul className={style.menuList}>
             <li><Link to='/my-housing'>Accomodations</Link></li>
             <li><Link to='/my-job'>Jobs</Link></li>
+            <li><Link to='/my-market'>market</Link></li>
            </ul>
         </Accordion.Body>
       </Accordion.Item>
@@ -108,6 +109,7 @@ function UserProfileMenu({activeList}) {
            <ul className={style.menuList}>
             <li><Link to='/my-housing'>Accomodations</Link></li>
             <li><Link to='/my-job'>Jobs</Link></li>
+            <li><Link to='/my-market'>market</Link></li>
            </ul>
         </Accordion.Body>
       </Accordion.Item>

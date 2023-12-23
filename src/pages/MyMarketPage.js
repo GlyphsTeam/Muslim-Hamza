@@ -1,0 +1,26 @@
+import Menu from '../components/common/UserProfileMenu';
+import UserPostsSection from '../components/userProfile/UserPostsSection';
+import useAxios from "../hooks/useAxios";
+import style from '../assets/style/userProfile/userProfile.module.scss'
+
+function MyJobPage({baseUrl}) {
+  const url = `user/market`;
+  const [Data] = useAxios(url);
+  const myData = Data?.data;
+
+  return (
+    <div className={`row w-100 m-0 ${style.userPage}`}>
+
+      <div className='col-lg-3 col-md-4 col-sm-12 px-0'>
+        <Menu activeList='2' />
+      </div>
+
+      <div className='col-lg-9 col-md-8 col-sm-12'>
+        <UserPostsSection savedData = {myData?.market} type='market' baseUrl={baseUrl} />
+      </div>
+
+    </div>
+  )
+}
+
+export default MyJobPage

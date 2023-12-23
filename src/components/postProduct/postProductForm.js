@@ -89,7 +89,7 @@ function ProductForm() {
       );
       const [modelData] = useAxios(
         `product-model?sub_id=${selectedSubCategoryID}`
-    
+
       );
       const color = Data?.data;
       const city = cityData?.data;
@@ -150,9 +150,9 @@ function ProductForm() {
             setDescriptionWarning(true);
           }
         } else {
-          const token = localStorage.getItem("arab_user_token");
+          const token = localStorage.getItem("muslim_comunity_token");
           let baseURL = `https://${process.env.REACT_APP_domain}/en/${process.env.REACT_APP_CityID}/market/create`;
-    
+          console.log("marketFormData>>>",marketFormData)
           try {
             await fetch(`${baseURL}`, {
               headers: {
@@ -180,6 +180,7 @@ function ProductForm() {
                   anonymous: "",
                   description: "",
                   place: "",
+                  images:[]
                 });
                 setSend(false);
               }, 100);
