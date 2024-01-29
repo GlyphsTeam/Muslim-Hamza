@@ -1,16 +1,15 @@
-import Hero from "../components/home/Hero/Hero";
-import AboutUs from "../components/home/AboutUs";
-import TryApp from "../components/home/TryApp";
-import MainCategory from "../components/home/MainCategory/MainCategory";
+import { lazy, useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
-import Blog from "../components/home/Blog";
-// import AdvertisementBanner from "../components/common/AdvertisementBanner";
-import FindMasjidSection from "../components/common/findMasjidSection/FindMasjidSection";
-import NavBar from "../components/layout/NavBar";
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { setDateHome } from '../redux/Home';
+const AboutUs = lazy(() => import("../components/home/AboutUs"));
+const TryApp = lazy(() => import("../components/home/TryApp"));
+const Hero = lazy(() => import("../components/home/Hero/Hero"));
+const MainCategory = lazy(() => import("../components/home/MainCategory/MainCategory"));
+const Blog = lazy(() => import("../components/home/Blog"));
+const FindMasjidSection = lazy(() => import("../components/common/findMasjidSection/FindMasjidSection"))
+
 function HomePage({ stateName }) {
   const url = "home";
   const dispatch = useDispatch();
@@ -44,15 +43,14 @@ function HomePage({ stateName }) {
   }, [pathName])
   return (
     <div className="main">
-      <NavBar stateName={stateName} />
 
       {showHome && <><Hero stateName={stateName} />
-        <AboutUs/>
+        <AboutUs />
         {/* <AdvertisementBanner Data={AdvertisementsData} /> */}
-        <MainCategory urlApi='main-market' navUrl="/Shop"/>
+        <MainCategory urlApi='main-market' navUrl="/Shop" />
         <FindMasjidSection dataMasjid={findMasjidData} />
-        <MainCategory urlApi='main-categories' navUrl="/businessPage"/>
-        <Blog/>
+        <MainCategory urlApi='main-categories' navUrl="/businessPage" />
+        <Blog />
         <TryApp />
       </>}
     </div>
